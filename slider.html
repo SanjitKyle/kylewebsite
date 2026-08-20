@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinite Slide Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .slide {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: absolute;
+    }
+
+    .slide-center {
+      transform: translateX(0) scale(1);
+      z-index: 20;
+      opacity: 1;
+    }
+
+    .slide-left {
+      transform: translateX(-120%) scale(1);
+      z-index: 10;
+      opacity: 1;
+    }
+
+    .slide-right {
+      transform: translateX(120%) scale(1);
+      z-index: 10;
+      opacity: 1;
+    }
+
+    .slide-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(0) scale(0.8);
+    }
+
+    .slide-content {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .compact-card {
+      width: 240px;
+      height: 100px;
+    }
+
+    .expanded-card {
+      width: 500px;
+      height: 280px;
+    }
+
+    @media (max-width: 768px) {
+      .compact-card {
+        width: 200px;
+        height: 90px;
+      }
+
+      .expanded-card {
+        width: 90vw;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <div class="w-full scroll-animate scroll-animate-left flex justify-center mb-20" id="intro" data-delay="0">
+    <div class="w-[90%] justify-center flex-col items-center">
+      <div class="relative ml-[250px] h-[400px] flex items-center justify-center">
+        <div class="relative w-full h-full flex items-center justify-center">
+
+          <!-- SLIDE 0 -->
+          <div class="slide ml-[-220px] relative" id="slide-0">
+            <div
+              class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+              <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                <div class="flex-shrink-0">
+                  <div>
+                    <img src="assets/images/instagram1.webp" class="h-10" />
+                    <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                  </div>
+                  <img src="assets/images/digitalmarketingglow.png" class="absolute bottom-0 left-0" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing</h3>
+                  <img src="assets/images/Vector 9.png" class="mt-2" />
+                </div>
+              </div>
+
+              <div class="expanded-view hidden w-full h-full">
+                <div class="relative w-full h-full flex items-center justify-between bg-[#f0fffa] shadow-md">
+                  <div class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                    <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                      GBP<br> Optimization</h3>
+                    <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                    <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">
+                      In today's digital world, your brand's online presence is everything.
+                    </p>
+                    <a href="" class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                      More <img src="assets/images/readmorearrow.png" /></a>
+                  </div>
+                  <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                    <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                  </div>
+                  <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                  <img src="assets/images/cardbottomglow.png" class="absolute bottom-[-14px] left-[-2px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 1 -->
+          <div class="slide ml-[-220px] relative" id="slide-1">
+            <div
+              class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+              <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                <div class="flex-shrink-0">
+                  <div>
+                    <img src="assets/images/instagram1.webp" class="h-10" />
+                    <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                  </div>
+                  <img src="assets/images/digitalmarketingglow.png" class="absolute bottom-0 left-0" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing</h3>
+                  <img src="assets/images/Vector 9.png" class="mt-2" />
+                </div>
+              </div>
+
+              <div class="expanded-view hidden w-full h-full">
+                <div class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                  <div class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                    <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                      GBP<br> Optimization</h3>
+                    <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                    <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">
+                      In today's digital world, your brand's online presence is everything.
+                    </p>
+                    <a href="" class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                      More <img src="assets/images/readmorearrow.png" /></a>
+                  </div>
+                  <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                    <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                  </div>
+                  <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                  <img src="assets/images/cardbottomglow.png" class="absolute bottom-[-14px] left-[-2px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="slide ml-[-220px] relative" id="slide-2">
+            <div
+              class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+              <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                <div class="flex-shrink-0">
+                  <div class="ml-[-20px]">
+                    <img src="assets/images/metagoogleadd.png" class="h-16" />
+                  </div>
+                  <img src="assets/images/digitalmarketingglow.png" class="absolute bottom-0 left-0" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing</h3>
+                  <img src="assets/images/Vector 9.png" class="mt-2" />
+                </div>
+              </div>
+
+              <div class="expanded-view hidden w-full h-full">
+                <div class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                  <div class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                    <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                      GBP<br> Optimization</h3>
+                    <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                    <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">
+                      In today's digital world, your brand's online presence is everything.
+                    </p>
+                    <a href="" class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                      More <img src="assets/images/readmorearrow.png" /></a>
+                  </div>
+                  <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                    <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                  </div>
+                  <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                  <img src="assets/images/cardbottomglow.png" class="absolute bottom-[-14px] left-[-2px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="slide ml-[-220px] relative" id="slide-3">
+            <div
+              class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+              <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                <div class="flex-shrink-0">
+                  <div>
+                    <img src="assets/images/instagram1.webp" class="h-10" />
+                    <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                  </div>
+                  <img src="assets/images/digitalmarketingglow.png" class="absolute bottom-0 left-0" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing</h3>
+                  <img src="assets/images/Vector 9.png" class="mt-2" />
+                </div>
+              </div>
+
+              <div class="expanded-view hidden w-full h-full">
+                <div class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                  <div class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                    <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                      GBP<br> Optimization</h3>
+                    <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                    <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">
+                      In today's digital world, your brand's online presence is everything.
+                    </p>
+                    <a href="" class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                      More <img src="assets/images/readmorearrow.png" /></a>
+                  </div>
+                  <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                    <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                  </div>
+                  <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                  <img src="assets/images/cardbottomglow.png" class="absolute bottom-[-14px] left-[-2px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 -->
+          <div class="slide ml-[-220px] relative" id="slide-4">
+            <div
+              class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+              <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                <div class="flex-shrink-0">
+                  <div>
+                    <img src="assets/images/instagram1.webp" class="h-10" />
+                    <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                  </div>
+                  <img src="assets/images/digitalmarketingglow.png" class="absolute bottom-0 left-0" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing</h3>
+                  <img src="assets/images/Vector 9.png" class="mt-2" />
+                </div>
+              </div>
+
+              <div class="expanded-view hidden w-full h-full">
+                <div class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                  <div class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                    <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                      GBP<br> Optimization</h3>
+                    <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                    <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">
+                      In today's digital world, your brand's online presence is everything.
+                    </p>
+                    <a href="" class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                      More <img src="assets/images/readmorearrow.png" /></a>
+                  </div>
+                  <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                    <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                  </div>
+                  <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                  <img src="assets/images/cardbottomglow.png" class="absolute bottom-[-14px] left-[-2px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DOTS -->
+      <div class="flex justify-center gap-2 mt-8">
+        <button onclick="goToSlide(0)" class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot"
+          id="dot-0"></button>
+        <button onclick="goToSlide(1)" class="h-2 w-8 rounded-full bg-emerald-400 transition-all dot"
+          id="dot-1"></button>
+        <button onclick="goToSlide(2)" class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot"
+          id="dot-2"></button>
+        <button onclick="goToSlide(3)" class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot"
+          id="dot-3"></button>
+        <button onclick="goToSlide(4)" class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot"
+          id="dot-4"></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    let isAnimating = false;
+    const totalSlides1 = 5;
+
+    function updateSlides() {
+      for (let i = 0; i < totalSlides1; i++) {
+        const slide = document.getElementById(`slide-${i}`);
+        const slideContent = slide.querySelector('.slide-content');
+        const compactView = slide.querySelector('.compact-view');
+        const expandedView = slide.querySelector('.expanded-view');
+        const dot = document.getElementById(`dot-${i}`);
+
+        // reset
+        slide.classList.remove('slide-center', 'slide-left', 'slide-right', 'slide-hidden');
+
+        // update dots
+        if (i === currentIndex) {
+          dot.classList.remove('w-2', 'bg-gray-400');
+          dot.classList.add('w-8', 'bg-emerald-400');
+        } else {
+          dot.classList.remove('w-8', 'bg-emerald-400');
+          dot.classList.add('w-2', 'bg-gray-400');
+        }
+
+        // find true left and right indices for wrap-around
+        const prevIndex = (currentIndex - 1 + totalSlides1) % totalSlides1;
+        const nextIndex = (currentIndex + 1) % totalSlides1;
+
+        if (i === currentIndex) {
+          // center card
+          slide.classList.add('slide-center');
+          slideContent.classList.remove('compact-card');
+          slideContent.classList.add('expanded-card');
+          compactView.classList.add('hidden');
+          expandedView.classList.remove('hidden');
+        } else if (i === prevIndex) {
+          // left card
+          slide.classList.add('slide-left');
+          slideContent.classList.remove('expanded-card');
+          slideContent.classList.add('compact-card');
+          compactView.classList.remove('hidden');
+          expandedView.classList.add('hidden');
+        } else if (i === nextIndex) {
+          // right card
+          slide.classList.add('slide-right');
+          slideContent.classList.remove('expanded-card');
+          slideContent.classList.add('compact-card');
+          compactView.classList.remove('hidden');
+          expandedView.classList.add('hidden');
+        } else {
+          // hidden cards
+          slide.classList.add('slide-hidden');
+          slideContent.classList.remove('expanded-card');
+          slideContent.classList.add('compact-card');
+          compactView.classList.remove('hidden');
+          expandedView.classList.add('hidden');
+        }
+      }
+    }
+
+    function goToSlide(index) {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      if (index < 0) {
+        currentIndex = totalSlides1 - 1;
+      } else if (index >= totalSlides1) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      updateSlides();
+
+      setTimeout(() => {
+        isAnimating = false;
+      }, 600);
+    }
+
+    // init
+    updateSlides();
+
+    // auto slide
+   
+    let autoSlide = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 4000);
+
+    // pause on hover
+    // const intro = document.getElementById("intro");
+    // intro.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    // intro.addEventListener("mouseleave", () => {
+    //   autoSlide = setInterval(() => {
+    //     goToSlide(currentIndex + 1);
+    //   }, 4000);
+    // });
+  </script>
+
+
+</body>
+
+</html>

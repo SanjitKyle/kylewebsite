@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=App_Title&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto {
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+
+        .App_Tiltle {
+            font-family: 'App_Title', sans-serif;
+
+        }
+
+        .glow {
+            animation: weaveGlow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes weaveGlow {
+            0% {
+                box-shadow:
+                    0 0 15px 5px rgba(0, 195, 255, 0.3),
+                    0 0 25px 10px rgba(0, 255, 200, 0.3);
+            }
+
+            25% {
+                box-shadow:
+                    0 0 25px 10px rgba(0, 195, 255, 0.5),
+                    0 0 35px 15px rgba(0, 195, 255, 0.5);
+            }
+
+            75% {
+                box-shadow:
+
+                    0 0 10px 5px rgba(0, 195, 255, 0.3),
+                    0 0 15px 10px rgba(0, 195, 255, 0.5);
+
+            }
+
+        }
+
+
+
+        .lato {
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .slide {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+        }
+
+        .slide-center {
+            transform: translateX(0) scale(1);
+            z-index: 20;
+            opacity: 1;
+        }
+
+        .slide-left {
+            transform: translateX(-120%) scale(1);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .slide-right {
+            transform: translateX(120%) scale(1);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .slide-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(0) scale(0.8);
+        }
+
+        .slide-content {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .compact-card {
+            width: 240px;
+            height: 100px;
+        }
+
+        .expanded-card {
+            width: 500px;
+            height: 280px;
+        }
+
+        @media (max-width: 768px) {
+            .compact-card {
+                width: 200px;
+                height: 90px;
+            }
+
+            .expanded-card {
+                width: 90vw;
+                height: 250px;
+            }
+        }
+
+
+
+        .glow {
+            box-shadow: 0 0 20px rgba(39, 179, 222, 0.8), 0 0 40px rgba(39, 179, 222, 0.4);
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .typing-cursor {
+            border-right: 3px solid #28BBE9;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                border-color: #28BBE9;
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
+        }
+
+
+
+        @keyframes bgMove {
+
+            0%,
+            100% {
+                background-position: center top;
+            }
+
+            50% {
+                background-position: center bottom;
+            }
+        }
+
+        .animated-bg {
+            background-size: 150% 150%;
+            animation: bgMove 4s ease-in-out infinite;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .main-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background image with rounded edges */
+        .main-section::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 80vh;
+            background: url('assets/images/bannerimage.png') center/cover no-repeat;
+            border-top-left-radius: 300px;
+            border-bottom-left-radius: 300px;
+            z-index: 1;
+        }
+
+        /* Overlay */
+        .main-section::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 80vh;
+            background: rgba(0, 10, 25, 0.81);
+            /* same as #000A19CF */
+            border-top-left-radius: 300px;
+            border-bottom-left-radius: 300px;
+            z-index: 2;
+        }
+
+        /* Keep text and other content above overlay */
+        .main-section>* {
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!----header-->
+    <div
+        class="w-full min-h-[115vh] bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[550px] relative">
+        <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[550px] min-h-[115vh]"></div>
+
+        <!-- Top Bar -->
+        <div class="relative w-full flex justify-center fade-in-up">
+            <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
+                <!-- Location -->
+                <div class="flex gap-2 text-white items-center">
+                    <i class="ri-map-pin-2-fill text-white"></i>
+                    <p class="text-[14px] roboto">AA 195, AA Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064,
+                        India</p>
+                </div>
+                <!-- Contact Info -->
+                <div class="flex gap-4 items-center">
+                    <div class="flex text-white text-[14px] gap-2 roboto items-center">
+                        <i class="ri-phone-fill text-white text-[20px]"></i>
+                        +918240445884
+                    </div>
+                    <div class="flex text-white items-center gap-2 text-[14px] roboto">
+                        <i class="ri-mail-fill text-[20px]"></i>
+                        info@kyleinfotech.com
+                    </div>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="flex gap-2 items-center">
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-facebook-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-instagram-line"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-linkedin-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-twitter-x-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="w-full flex relative justify-center mt-3 items-center fade-in-up" style="transition-delay: 0.2s">
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
+                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
+                <ul class="flex gap-4 roboto text-[#061E42] font-medium">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Home</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Social Media</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Website Design</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Graphic Design</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">SEO</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Local SEO</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Google Ads</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex justify-center items-center mt-[100px] w-full relative">
+            <div class="w-[90%] flex justify-between items-center">
+                <!-- Left Side Content -->
+                <div class="w-[50%]">
+                    <div class="fade-in-left">
+                        <h1 class="text-5xl text-white leading-tight">
+                            WE BUILD<br>
+                            <span class="text-[#28BBE9] text-8xl font-bold lato typing-cursor"
+                                id="typingText"></span><br>
+                            That <span>WOW</span> And <span class="font-medium">Work</span>
+                        </h1>
+                    </div>
+
+                    <!-- Button Design -->
+                    <div class="w-[80%] mt-12 fade-in-up" style="transition-delay: 0.4s">
+                        <div class="flex gap-8 ml-[105px]">
+                            <p class="text-white text-[22px]">CALL US TODAY</p>
+                            <div
+                                class="h-6 mt-1 rounded-[20px] bg-[#40C49B] px-2 flex justify-center items-center text-[16px] text-white">
+                                free consultation
+                            </div>
+                        </div>
+                        <div
+                            class="flex text-[40px] border-[2px] border-[#5D5B5B] font-bold lato text-[#EAF9FF] shadow-[0_0_10px_#0c699c] px-5 rounded-[50px] items-center py-1 bg-[#1c222b] w-[92%] hover:shadow-[0_0_20px_#0c699c] transition-all duration-300">
+                            <div
+                                class="w-[70px] mt-[-50px] h-[70px] glow rounded-full bg-[#27B3DE] flex items-center justify-center scale-in">
+                                <i class="ri-phone-fill text-white text-[39px]"></i>
+                            </div>
+                            +91 8240445884
+                        </div>
+                    </div>
+
+                    <div class="w-[80%] mt-1 fade-in-up" style="transition-delay: 0.6s">
+                        <img src="assets/images/google.png" class="w-[90%]" alt="Google Reviews" />
+                    </div>
+                </div>
+
+                <!-- Right Side Image -->
+                <div class="w-[50%] absolute right-0 fade-in-right">
+                    <img src="assets/images/BANNER LATOP MOBILE.png"
+                        class="w-[90%] drop-shadow-[0_0_50px_rgba(0,255,255,0.4)]" alt="Banner Laptop Mobile" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--logo banner-->
+    <div class="flex justify-center w-full py-2">
+        <div class="w-[87%]">
+            <img src="assets/images/thinbanner.png" />
+        </div>
+    </div>
+    <!---social edge section -->
+    <div class="w-full flex justify-center mt-[100px]">
+        <div class="w-[95%] flex ">
+            <div class="w-[50%] flex justify-start ">
+                <img src="assets/images/gif.gif" class="ml-[-60px] animate-on-scroll fade-in-left" />
+            </div>
+
+            <div class="w-[50%] ml-[-80px]">
+                <span class="text-[#00A3F7] App_Tiltle text-[18px] font-semibold animate-on-scroll fade-in-up">The
+                    Social Edge</span>
+                <h2 class="text-[#205872] text-[40px] font-extrabold lato animate-on-scroll fade-in-up stagger-1">Level
+                    Up Your Brand with Expert Social Media Marketing</h2>
+                <img src="assets/images/Vector 1.png" class="animate-on-scroll scale-in stagger-2" />
+                <p class="text-[#6E6A74] text-[18px] mt-8 lato animate-on-scroll fade-in-up stagger-3">In today's
+                    digital world, your brand's online presence is everything. Whether you're just starting out or
+                    scaling up, expert social media marketing helps you connect, convert, and grow. From strategy to
+                    content, we craft scroll-stopping posts, run targeted ads, and tell stories that build trust and
+                    drive real results across platforms like Instagram, Facebook, and LinkedIn. Let your brand stand
+                    out—we don't just post, we make impact.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-[#F5FDFF] h-[70vh] absolute mt-[-430px] z-[-10] flex justify-center">
+        <div>
+            <div class="flex gap-20 justify-center mr-[-438px] mt-5">
+                <ul class="space-y-2 text-[19px] text-[#1d4ed8] font-medium lato">
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-1">
+                        <i class="ri-check-line text-[#1d9bf0] font-bold text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Digital Marketing</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-2">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Website Design</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-3">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Digital Marketing</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-4">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Website Design</span>
+                    </li>
+                </ul>
+                <ul class="space-y-2 text-[19px] text-[#1d4ed8] font-medium lato">
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-1">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Ads Run</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-2">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Business Profile Optimization</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-3">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Ads Run</span>
+                    </li>
+                    <li class="flex items-center gap-2 animate-on-scroll fade-in-up stagger-4">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Business Profile Optimization</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex items-center mr-[-320px] gap-3 bg-[#f3fbff] p-3 rounded-md animate-on-scroll fade-in-up">
+                <div
+                    class="w-[75px] h-[75px] mt-5 rounded-full bg-[#27B3DE] flex items-center justify-center text-white">
+                    <i class="ri-phone-fill text-[45px]"></i>
+                </div>
+
+                <div class="flex flex-col leading-tight mt-5">
+                    <span class="text-[#061E42] lato font-semibold text-[18px] font-bold">Call to ask any
+                        question</span>
+                    <a href="tel:+918240445884" class="text-[#27B3DE] lato text-[40px] font-semibold hover:underline">
+                        +91 8240445884
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---slider-->
+    <div class="w-full fade-in-left  flex justify-center mb-20 ">
+        <div class="w-[90%]   justify-center flex-col items-center">
+            <div class="relative  ml-[250px] h-[400px] flex items-center justify-center">
+                <!-- Slides Container -->
+                <div class="relative w-full h-full flex items-center justify-center">
+
+                    <!-- Slide 0: Digital Marketing -->
+                    <div class="slide ml-[-220px] relative" id="slide-0">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px]  rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <!-- Compact View -->
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Expanded View -->
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full  flex items-center justify-between bg-[#f0fffa] shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black  rounded-tr-[210px] flex flex-col   rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight  mt-8">
+                                            GBP<br> Optimization</h3>
+
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today’s
+                                            digital world, your
+                                            brand’s online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px]  ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%] ">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 1: GBP Optimization (Default Center) -->
+                    <div class="slide ml-[-220px] relative" id="slide-1">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px]  rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <!-- Compact View -->
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Expanded View -->
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full  flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black  rounded-tr-[210px] flex flex-col   rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight  mt-8">
+                                            GBP<br> Optimization</h3>
+
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today’s
+                                            digital world, your
+                                            brand’s online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px]  ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%] ">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Facebook & Google Ads -->
+                    <div class="slide ml-[-220px] relative" id="slide-2">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px]  rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <!-- Compact View -->
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="ml-[-20px]">
+                                        <img src="assets/images/metagoogleadd.png" class="h-16" />
+
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Expanded View -->
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full  flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black  rounded-tr-[210px] flex flex-col   rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight  mt-8">
+                                            GBP<br> Optimization</h3>
+
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today’s
+                                            digital world, your
+                                            brand’s online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px]  ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%] ">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: SEO Services -->
+                    <div class="slide ml-[-220px] relative" id="slide-3">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px]  rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <!-- Compact View -->
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Expanded View -->
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full  flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black  rounded-tr-[210px] flex flex-col   rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight  mt-8">
+                                            GBP<br> Optimization</h3>
+
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today’s
+                                            digital world, your
+                                            brand’s online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px]  ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%] ">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Content Creation -->
+                    <div class="slide  ml-[-220px] relative" id="slide-4">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px]  rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <!-- Compact View -->
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Expanded View -->
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full  flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black  rounded-tr-[210px] flex flex-col   rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight  mt-8">
+                                            GBP<br> Optimization</h3>
+
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today’s
+                                            digital world, your
+                                            brand’s online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px]  ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%] ">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Buttons -->
+                <!-- <button onclick="prevSlide()"
+          class="absolute left-0 z-30 w-12 h-12 rounded-full bg-black/80 text-white hover:bg-black transition-all flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button onclick="nextSlide()"
+          class="absolute right-0 z-30 w-12 h-12 rounded-full bg-black/80 text-white hover:bg-black transition-all flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button> -->
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="flex justify-center gap-2 mt-8">
+                <button onclick="goToSlide(0)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-0"></button>
+                <button onclick="goToSlide(1)" class="h-2 w-8 rounded-full bg-emerald-400 transition-all dot"
+                    id="dot-1"></button>
+                <button onclick="goToSlide(2)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-2"></button>
+                <button onclick="goToSlide(3)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-3"></button>
+                <button onclick="goToSlide(4)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-4"></button>
+            </div>
+        </div>
+    </div>
+
+    <!----heping business grow -->
+    <div class="main-section w-full fade-in-right relative h-[100vh] mr-[-100px] flex justify-center mt-[150px]">
+        <div class="w-[88%] flex justify-end gap-[300px] relative z-[2]">
+            <div class="w-[50%] relative">
+                <h3 class="text-4xl lato font-bold text-[#205872]">
+                    Helping businesses grow with Custom Websites.
+                </h3>
+                <p class="mt-10 text-[16px] text-[#6E6A74] lato">
+                    In today’s digital world, your brand’s online presence is everything. Whether you're just starting
+                    out or
+                    scaling up, expert social media marketing helps you connect, convert, and grow.
+                    From strategy to content, we craft scroll-stopping posts, run targeted ads, and tell stories that
+                    build
+                    trust and drive real results across platforms like Instagram, Facebook, and LinkedIn.
+                    Let your brand stand out—we don’t just post, we make impact.
+                </p>
+
+                <p class="text-black lato flex items-center gap-4 text-[18px] mt-10">
+                    Technology We Use <img src="assets/images/Line 13.png" />
+                </p>
+
+                <div class="flex gap-4 mt-10">
+                    <img src="assets/images/angular.png" class="h-[40px]" />
+                    <img src="assets/images/react.png" class="h-[40px]" />
+                    <img src="assets/images/wordpress.png" class="h-[40px]" />
+                    <img src="assets/images/shopify.png" class="h-[40px]" />
+                </div>
+            </div>
+
+            <img src="assets/images/drop-shadow.png" class="absolute top-[-100px] w-[50%]" />
+
+            <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                <img src="assets/images/Rectangle 141.png" class="absolute right-0 top-0" />
+                <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+            </div>
+        </div>
+    </div>
+
+
+    <!--other services -->
+    <section class="py-16 bg-white animate-on-scroll cursor-pointer fade-in-up ">
+        <div class="text-center mb-8">
+            <h3 class="text-[18px] font-semibold text-sky-500 App_Tiltle ">Our Other Services</h3>
+        </div>
+
+        <div class="flex justify-center gap-6 px-6 w-full">
+            <div class="w-[90%] flex justify-center gap-4">
+
+                <!-- Card 1 -->
+                <div class="relative w-[32%] h-[400px] rounded-[1.5rem] rounded-tr-[80px] overflow-hidden bg-cover bg-center shadow-lg group mouse-glow"
+                    style="background-image:url('assets/images/otherservicesbg.jpg')">
+                    <div class="absolute inset-0 bg-black/70 transition duration-300 group-hover:bg-black/60"></div>
+                    <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        id="glow-layer-1"></div>
+
+                    <div class="relative z-10 flex flex-col justify-end h-full p-5 text-white">
+                        <h3 class="text-[20px] font-bold mb-2 text-center">SEO</h3>
+                        <div class="w-full flex justify-center">
+                            <img src="assets/images/seorectangle.png" class="w-[20%]" />
+                        </div>
+
+                        <p class="text-[18px] leading-relaxed text-gray-300 text-center">
+                            In today's digital world, your brand's online presence is everything. Whether you're just
+                            starting out or scaling up, expert social media marketing helps you connect, convert, and
+                            grow.
+                            From strategy to content, we craft scroll.
+                        </p>
+                        <div class="mt-4 text-center">
+                            <a href="#" class="text-cyan-400 font-semibold text-[16px] hover:underline">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="relative w-[32%] h-[400px] rounded-[1.5rem] rounded-tl-[80px] rounded-tr-[80px] overflow-hidden bg-cover bg-center shadow-lg group mouse-glow"
+                    style="background-image:url('assets/images/otherservicesbg.jpg')">
+                    <div class="absolute inset-0 bg-black/70 transition duration-300 group-hover:bg-black/60"></div>
+                    <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        id="glow-layer-2"></div>
+
+                    <div class="relative z-10 flex flex-col justify-end h-full p-5 text-white">
+                        <h3 class="text-[18px] font-bold mb-2 text-center">SOCIAL MEDIA MARKETING</h3>
+                        <div class="w-full flex justify-center">
+                            <img src="assets/images/socialmarketing.png" class="w-[50%]" />
+                        </div>
+                        <p class="text-[18px] leading-relaxed text-gray-300 text-center">
+                            In today's digital world, your brand's online presence is everything. Whether you're just
+                            starting out or scaling up, expert social media marketing helps you connect, convert, and
+                            grow.
+                            From strategy to content, we craft scroll.
+                        </p>
+                        <div class="mt-4 text-center">
+                            <a href="#" class="text-cyan-400 font-semibold text-[16px] hover:underline">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="relative w-[32%] h-[400px] rounded-[1.5rem] rounded-tl-[80px] overflow-hidden bg-cover bg-center shadow-lg group mouse-glow"
+                    style="background-image:url('assets/images/otherservicesbg.jpg')">
+                    <div class="absolute inset-0 bg-black/70 transition duration-300 group-hover:bg-black/60"></div>
+                    <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        id="glow-layer-3"></div>
+
+                    <div class="relative z-10 flex flex-col justify-end h-full p-5 text-white">
+                        <h3 class="text-[18px] font-bold mb-2 text-center">DIGITAL MARKETING</h3>
+                        <div class="w-full flex justify-center mb-2">
+                            <img src="assets/images/marketingreact.png" class="w-[60%]" />
+                        </div>
+                        <p class="text-[18px] leading-relaxed text-gray-300 text-center">
+                            In today’s digital world, your brand’s online presence is everything. Whether you're just
+                            starting out or scaling up, expert social media marketing helps you connect, convert, and
+                            grow.
+                            From strategy to content, we craft scroll.
+                        </p>
+                        <div class="mt-4 text-center">
+                            <a href="#" class="text-cyan-400 font-semibold text-[16px] hover:underline">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!---Snapshots of Dedication. Frames of-->
+    <div class="w-full flex justify-center  absolute mt-[-0px] items-center py-10">
+        <div
+            class="w-[87%] bg-center relative bg-cover bg-[url('assets/images/contactbg.jpg')] rounded-[15px] py-6 px-6 flex flex-col items-center text-center shadow-md">
+
+
+
+
+            <h3 class="text-[#227D99] font-semibold text-[39px] tracking-wide mb-2 relative lato ">
+                CALL FOR ANY QUERY
+                <img src="assets/images/contactvector.png" class="ml-[20px]" />
+            </h3>
+
+            <img src="assets/images/callvector.png" class="absolute left-[-2px] bottom-[-3px]" />
+            <div class="flex items-center  mt-[-20px]  gap-3 p-3 rounded-md">
+                <div
+                    class="w-[60px] h-[60px] mt-5 rounded-full bg-[#27B3DE] flex items-center justify-center text-white">
+                    <i class="ri-phone-fill text-[45px]"></i>
+                </div>
+
+                <div class="flex flex-col leading-tight mt-5">
+
+                    <a href="tel:+918240445884"
+                        class="text-black no-underline lato text-[34px] font-semibold hover:underline-none">
+                        +91 8240445884
+                    </a>
+
+                </div>
+            </div>
+            <img src="assets/images/callvector2.png" class="absolute right-[-2px] top-[-3px]" />
+
+
+        </div>
+    </div>
+
+    <div class="w-full bg-[#E8F8F3]  flex justify-center  min-h-[100vh] mt-[150px]">
+        <div class="w-[87%] gap-8  flex justify-center pt-[180px] pb-[100px]">
+            <div class="w-[35%] h-[93vh] bg-cover rounded-[30px]  bg-center bg-[url('assets/images/man.jpg')]">
+
+            </div>
+            <div class=" w-[65%]">
+                <div class="relative">
+                    <h3 class="text-[40px] lato text-[#205872] leading-tight">Snapshots of Dedication. Frames of
+                        Innovation.</h3>
+                    <img src="assets/images/Vector 12.png" class="absolute mt-[-50px] left-[240px]" />
+                    <P class="lato text-[16px] mt-3 text-[#6E6A74]">In today’s digital world, your brand’s online
+                        presence is everything. Whether you're just starting out or scaling up, expert social media
+                        marketing helps you connect, convert, and grow.</P>
+                </div>
+                <div class="w-full flex gap-5 justify-center  mt-5">
+                    <div
+                        class="w-[70%] rounded-[30px] bg-cover h-[30vh] bg-center bg-no-repeat bg-[url('assets/images/kylegn1.webp')]">
+                    </div>
+
+                    <div
+                        class="w-[30%] rounded-[30px]  bg-center bg-no-repeat bg-[url('assets/images/kylemotivation.webp')]">
+
+                    </div>
+                </div>
+                <div class="w-full flex gap-5 justify-center  mt-5">
+                    <div class="w-[30%] rounded-[30px]  bg- bg-no-repeat bg-[url('assets/images/joyda_sit.webp')]">
+
+                    </div>
+                    <div
+                        class="w-[70%] rounded-[30px] bg-cover h-[30vh] bg-center bg-no-repeat bg-[url('assets/images/pabitrada.webp')]">
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="footer-container ">
+        <div id="custom-cursor"></div>
+        <div id="cursor-trail"></div>
+
+        <footer class="relative  bg-cover bg-center min-h-[120vh] text-white"
+            style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('assets/images/footerbg.jpg');">
+
+            <div class="absolute inset-0 bg-black/70"></div>
+
+            <div class="relative z-10 w-full mx-auto flex flex-col items-center justify-center h-full space-y-12">
+
+                <div class="w-[90%] flex justify-center">
+                    <div class="text-center mt-10">
+                        <h2 class="text-5xl font-bold mb-8 tracking-wider pt-10 hoverable-text">INSTANT CONTACT</h2>
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+                            <input type="text" placeholder="Name"
+                                class="w-[330px] bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Phone No."
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="email" placeholder="Email"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+
+                            <input type="text" placeholder="Service You Choose"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                        </form>
+
+                        <button
+                            class="mt-8 text-white w-[230px] bg-gradient-to-r from-[#3ABDFD] to-[#38E8AF] text-[30px] font-semibold px-10 py-2 rounded-full hover:opacity-90 transition-all hoverable-button">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+
+                <img src="assets/images/footereclip.png" class="absolute z-[-11] scale-x-[-1] left-0" />
+                <div
+                    class=" animated-bg mouse-glow bg-[radial-gradient(circle_at_center,_#00332F,_#000000,_#006345)] h-[120vh] rounded-tl-[700px] py-12 px-10 md:px-20 w-full border-t-[2px] border-l-[2px] border-[#6FACAB]">
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+                        <div class="mt-[270px]">
+                            <div class="flex items-center px-3 ml-[-20px] mb-5 bg-white w-[240px] py-2 rounded-[10px]">
+                                <img src="assets/images/logo.png" />
+                            </div>
+                            <p class="text-gray-300 leading-relaxed lato mt-10 text-[16px] ml-[-10px] hoverable-text">
+                                Kyle Infotech is a forward-thinking IT company dedicated to delivering smart, scalable,
+                                and
+                                reliable technology solutions for businesses of all sizes.
+                            </p>
+                        </div>
+
+                        <div class="mt-[150px] ml-10">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Quick Links</h3>
+                            <ul class="space-y-2 text-gray-300 text-[20px] lato">
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Home</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">About us</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Our Services</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Projects</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Contact</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-[70px]">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Contact Info</h3>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-map-pin-line text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">32 Loren Rd, Lorem BR2 88A, United Kingdom</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-mail-line text-[#72F5CD] text-[20px] "></i>
+                                <p class="text-gray-300 text-[20px]">loren@testmail.com</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-phone-line  text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">+918240445884</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold mb-4 text-[28px] mt-5 lato hoverable-text">Working Hours</h3>
+                            <p class="text-gray-300 text-[18px] hoverable-text">Monday to Friday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                            <p class="text-gray-300 text-[18px] mt-2 hoverable-text">Saturday to Sunday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex justify-end h-[33vh] mt-1">
+                        <div
+                            class="w-[70%] flex justify-end items-center border-t-[1px] border-[#8E8E8E] mr-[-80px] rounded-tl-[1000px]">
+                            <div class="flex gap-2 items-center mt-[-210px] mr-[130px]">
+                                <div
+                                    class="flex justify-center bg-gradient-to-r from-[#25ABD4] to-[#40C49B] text-white items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-facebook-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-instagram-line text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-linkedin-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-youtube-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-twitter-x-line text-[20px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script>
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+
+                if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+
+        checkVisibility();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeElements = document.querySelectorAll(
+                ".fade-in-up, .fade-in-left, .fade-in-right, .scale-in"
+            );
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Element is in view
+                            entry.target.classList.add("active");
+                        } else {
+                            // Element went out of view — remove the class so it reanimates
+                            entry.target.classList.remove("active");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2, // Adjust how early it triggers
+                }
+            );
+
+            fadeElements.forEach((el) => observer.observe(el));
+        });
+    </script>
+
+
+    <script>
+        const footerContainer = document.getElementById('footer-container');
+        const cursor = document.getElementById('custom-cursor');
+        const cursorTrail = document.getElementById('cursor-trail');
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        footerContainer.addEventListener('mouseenter', () => {
+            footerContainer.classList.add('cursor-active');
+        });
+
+        footerContainer.addEventListener('mouseleave', () => {
+            footerContainer.classList.remove('cursor-active');
+        });
+
+        footerContainer.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        footerContainer.addEventListener('mousedown', () => {
+            footerContainer.classList.add('clicking');
+        });
+
+        footerContainer.addEventListener('mouseup', () => {
+            footerContainer.classList.remove('clicking');
+        });
+
+        function animateCursor() {
+            const speed = 0.15;
+            const trailSpeed = 0.1;
+
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+
+            trailX += (mouseX - trailX) * trailSpeed;
+            trailY += (mouseY - trailY) * trailSpeed;
+
+            cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+            cursorTrail.style.transform = `translate(${trailX - 20}px, ${trailY - 20}px)`;
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        const hoverableText = footerContainer.querySelectorAll('.hoverable-text, .hoverable-link');
+        const hoverableButtons = footerContainer.querySelectorAll('.hoverable-button, .hoverable-input');
+
+        hoverableText.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                footerContainer.classList.add('hovering-text');
+            });
+            element.addEventListener('mouseleave', () => {
+                footerContainer.classList.remove('hovering-text');
+            });
+        });
+
+        hoverableButtons.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                footerContainer.classList.add('hovering-clickable');
+            });
+            element.addEventListener('mouseleave', () => {
+                footerContainer.classList.remove('hovering-clickable');
+            });
+        });
+    </script>
+
+    <script>
+        const words = ['Websites', 'E-Commerce'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeEffect() {
+            const typingElement = document.getElementById('typingText');
+            const currentWord = words[wordIndex];
+
+            if (!isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex);
+                charIndex++;
+
+                if (charIndex > currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, pauseTime);
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+            }
+
+            setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+            animatedElements.forEach(el => observer.observe(el));
+
+            typeEffect();
+        });
+    </script>
+
+    <script>
+        let currentIndex = 1;
+        let isAnimating = false;
+        const totalSlides = 5;
+
+        function updateSlides() {
+            for (let i = 0; i < totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                const slideContent = slide.querySelector('.slide-content');
+                const compactView = slide.querySelector('.compact-view');
+                const expandedView = slide.querySelector('.expanded-view');
+                const dot = document.getElementById(`dot-${i}`);
+
+                slide.classList.remove('slide-center', 'slide-left', 'slide-right', 'slide-hidden');
+
+                if (i === currentIndex) {
+                    dot.classList.remove('w-2', 'bg-gray-400');
+                    dot.classList.add('w-8', 'bg-emerald-400');
+                } else {
+                    dot.classList.remove('w-8', 'bg-emerald-400');
+                    dot.classList.add('w-2', 'bg-gray-400');
+                }
+
+                const diff = i - currentIndex;
+                let position;
+
+                if (diff === 0) {
+                    position = 'center';
+                    slideContent.classList.remove('compact-card');
+                    slideContent.classList.add('expanded-card');
+                    compactView.classList.add('hidden');
+                    expandedView.classList.remove('hidden');
+                } else if (diff === -1 || (currentIndex === 0 && i === totalSlides - 1)) {
+                    position = 'left';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                } else if (diff === 1 || (currentIndex === totalSlides - 1 && i === 0)) {
+                    position = 'right';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                } else {
+                    position = 'hidden';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                }
+
+                slide.classList.add(`slide-${position}`);
+            }
+        }
+
+        function prevSlide() {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+            updateSlides();
+            setTimeout(() => { isAnimating = false; }, 600);
+        }
+
+        function nextSlide() {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+            updateSlides();
+            setTimeout(() => { isAnimating = false; }, 600);
+        }
+
+        function goToSlide(index) {
+            if (isAnimating || index === currentIndex) return;
+            isAnimating = true;
+            currentIndex = index;
+            updateSlides();
+            setTimeout(() => { isAnimating = false; }, 600);
+        }
+
+        updateSlides();
+
+
+
+        // document.querySelectorAll(".mouse-glow").forEach((card, i) => {
+        //     const glow = card.querySelector(`#glow-layer-${i + 1}`);
+        //     card.addEventListener("mousemove", (e) => {
+        //         const rect = card.getBoundingClientRect();
+        //         const x = e.clientX - rect.left;
+        //         const y = e.clientY - rect.top;
+        //         glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0,195,255,0.25) 0%, transparent 40%)`;
+        //     });
+        // });
+
+        // document.querySelectorAll(".mouse-glow").forEach((card, i) => {
+        //     const glow = card.querySelector(`#glow-layer-${i + 1}`);
+        //     card.addEventListener("mousemove", (e) => {
+        //         const rect = card.getBoundingClientRect();
+        //         const x = e.clientX - rect.left;
+        //         const y = e.clientY - rect.top;
+        //         glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(64, 196, 155, 1) 0%, transparent 40%)`;
+        //     });
+        // });
+
+        document.querySelectorAll(".mouse-glow").forEach((card, i) => {
+            const glow = card.querySelector(`#glow-layer-${i + 1}`);
+
+            // 🔹 Initially hidden glow
+            glow.style.opacity = "0";
+            glow.style.transition = "opacity 0.3s ease, background 0.15s ease-out";
+            glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+
+            // 🔹 Mouse enters → fade in + reset to top-left
+            card.addEventListener("mouseenter", () => {
+                glow.style.opacity = "1";
+                glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+            });
+
+            // 🔹 Move glow horizontally along the top while hovering
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Mouse X inside card
+                const y = 20; // Fixed top position for glow
+                glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+            });
+
+            // 🔹 Mouse leaves → fade out + reset back to top-left
+            card.addEventListener("mouseleave", () => {
+                glow.style.opacity = "0";
+                glow.style.transition = "opacity 0.4s ease, background 0.4s ease-out";
+                glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+            });
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

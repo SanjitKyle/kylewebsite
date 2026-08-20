@@ -1,0 +1,2061 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyle Infotech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=App_Title&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .App_Tiltle {
+            font-family: 'App_Title', sans-serif;
+        }
+
+        .glow {
+            animation: weaveGlow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes weaveGlow {
+            0% {
+                box-shadow: 0 0 15px 5px rgba(0, 195, 255, 0.3), 0 0 25px 10px rgba(0, 255, 200, 0.3);
+            }
+
+            25% {
+                box-shadow: 0 0 25px 10px rgba(0, 195, 255, 0.5), 0 0 35px 15px rgba(0, 195, 255, 0.5);
+            }
+
+            75% {
+                box-shadow: 0 0 10px 5px rgba(0, 195, 255, 0.3), 0 0 15px 10px rgba(0, 195, 255, 0.5);
+            }
+        }
+
+        .lato {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .slide {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+        }
+
+        .slide-center {
+            transform: translateX(0) scale(1);
+            z-index: 20;
+            opacity: 1;
+        }
+
+        .slide-left {
+            transform: translateX(-120%) scale(1);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .slide-right {
+            transform: translateX(120%) scale(1);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .slide-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(0) scale(0.8);
+        }
+
+        .slide-content {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .compact-card {
+            width: 240px;
+            height: 100px;
+        }
+
+        .expanded-card {
+            width: 500px;
+            height: 280px;
+        }
+
+        @media (max-width: 768px) {
+            .compact-card {
+                width: 200px;
+                height: 90px;
+            }
+
+            .expanded-card {
+                width: 90vw;
+                height: 250px;
+            }
+        }
+
+        .typing-cursor {
+            border-right: 3px solid #28BBE9;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                border-color: #28BBE9;
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes bgMove {
+
+            0%,
+            100% {
+                background-position: center top;
+            }
+
+            50% {
+                background-position: center bottom;
+            }
+        }
+
+        .animated-bg {
+            background-size: 150% 150%;
+            animation: bgMove 4s ease-in-out infinite;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .scroll-animate {
+            transition: none;
+            will-change: transform, opacity;
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+        }
+
+        .scroll-animate-up {
+            opacity: 0;
+        }
+
+        .scroll-animate-down {
+            opacity: 0;
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+        }
+
+
+        .locations {
+            background: #1b1b1b;
+            color: white;
+            padding: 20px;
+            width: 250px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .clock {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            position: relative;
+            margin-right: 15px;
+        }
+
+        .hand {
+            position: absolute;
+            background: white;
+            transform-origin: bottom center;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hour {
+            width: 3px;
+            height: 15px;
+            bottom: 50%;
+            background: #fff;
+        }
+
+        .minute {
+            width: 2px;
+            height: 20px;
+            bottom: 50%;
+            background: #ccc;
+        }
+
+        .second {
+            width: 1px;
+            height: 25px;
+            bottom: 50%;
+            background: #ff5722;
+        }
+
+        .city h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .city a {
+            color: #999;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .vertical-slider-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .vertical-slider-wrapper {
+            position: relative;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .vertical-slide {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-section::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 80vh;
+            background: url('assets/images/bannerimage.png') center/cover no-repeat;
+            border-top-left-radius: 300px;
+            border-bottom-left-radius: 300px;
+            z-index: 1;
+        }
+
+        .main-section::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 80vh;
+            background: rgba(0, 10, 25, 0.81);
+            border-top-left-radius: 300px;
+            border-bottom-left-radius: 300px;
+            z-index: 2;
+        }
+
+        .main-section>* {
+            position: relative;
+            z-index: 3;
+        }
+
+        .slider-indicator {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .indicator-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            width: 1rem;
+            height: 1rem;
+            background: rgba(64, 196, 155, 1);
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .slide-transition {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .text-glow {
+            background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s infinite linear;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .blur-bg {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        class="w-full min-h-[115vh] bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[550px] relative">
+        <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[550px] min-h-[115vh]"></div>
+
+        <div class="relative w-full flex justify-center scroll-animate scroll-animate-up" data-delay="0">
+            <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
+                <div class="flex gap-2 text-white items-center">
+                    <i class="ri-map-pin-2-fill text-white"></i>
+                    <p class="text-[14px] roboto">AA 195, AA Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064,
+                        India</p>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="flex text-white text-[14px] gap-2 roboto items-center">
+                        <i class="ri-phone-fill text-white text-[20px]"></i>
+                        +918240445884
+                    </div>
+                    <div class="flex text-white items-center gap-2 text-[14px] roboto">
+                        <i class="ri-mail-fill text-[20px]"></i>
+                        info@kyleinfotech.com
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-facebook-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-instagram-line"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-linkedin-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-twitter-x-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full flex relative justify-center mt-3 items-center scroll-animate scroll-animate-up"
+            data-delay="100">
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
+                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
+                <ul class="flex gap-4 roboto text-[#061E42] font-medium">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Home</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Social Media</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Website Design</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Graphic Design</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">SEO</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Local SEO</li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Google Ads</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center mt-[100px] w-full relative">
+            <div class="w-[90%] flex justify-between items-center">
+                <div class="w-[50%]">
+                    <div class="scroll-animate scroll-animate-left" data-delay="0">
+                        <h1 class="text-5xl text-white leading-tight">
+                            WE BUILD<br>
+                            <span class="text-[#28BBE9] text-8xl font-bold lato typing-cursor"
+                                id="typingText"></span><br>
+                            That <span>WOW</span> And <span class="font-medium">Work</span>
+                        </h1>
+                    </div>
+
+                    <div class="w-[80%] mt-12 " data-delay="200">
+                        <div class="flex gap-8 ml-[105px]">
+                            <p class="text-white text-[22px]">CALL US TODAY</p>
+                            <div
+                                class="h-6 mt-1 rounded-[20px] bg-[#40C49B] px-2 flex justify-center items-center text-[16px] text-white">
+                                free consultation
+                            </div>
+                        </div>
+                        <div
+                            class="flex text-[40px] border-[2px] border-[#5D5B5B] font-bold lato text-[#EAF9FF] shadow-[0_0_10px_#0c699c] px-5 rounded-[50px] items-center py-1 bg-[#1c222b] w-[92%] animted hover:shadow-[0_0_20px_#0c699c] transition-all duration-300">
+                            <div
+                                class="w-[70px] mt-[-50px] h-[70px] glow rounded-full bg-[#27B3DE] flex items-center justify-center">
+                                <i class="ri-phone-fill text-white text-[39px]"></i>
+                            </div>
+                            +91 8240445884
+                        </div>
+                    </div>
+
+                    <div class="w-[80%] mt-1 scroll-animate scroll-animate-up" data-delay="400">
+                        <img src="assets/images/google.png" class="w-[90%]" alt="Google Reviews" />
+                    </div>
+                </div>
+
+                <div class="w-[50%] absolute right-0 scroll-animate scroll-animate-right" data-delay="0">
+                    <img src="assets/images/BANNER LATOP MOBILE.png"
+                        class="w-[90%] drop-shadow-[0_0_50px_rgba(0,255,255,0.4)]" alt="Banner Laptop Mobile" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Text Slider -->
+    <div class="flex justify-center w-full py-6">
+        <!-- Text Slider -->
+        <div class="w-full overflow-hidden  py-4 rounded-2xl ">
+            <div id="text-slider" class="flex whitespace-nowrap gap-16 text-4xl font-bold uppercase tracking-widest">
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Website Development</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Android App Development</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Google Ads</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Meta Ads</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">SEO</h2>
+
+                <!-- Duplicate for infinite scroll -->
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Website Development</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Android App Development</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Google Ads</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">Meta Ads</h2>
+                <h2 class="text-glow hover:scale-110 transition-transform duration-300">SEO</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-center mt-[100px]">
+        <div class="w-[95%] flex">
+            <div class="w-[50%] flex justify-start scroll-animate scroll-animate-left" data-delay="0">
+                <img src="assets/images/gif.gif" class="ml-[-60px]" />
+            </div>
+
+            <div class="w-[50%] ml-[-80px]">
+                <span class="text-[#00A3F7] App_Tiltle text-[18px] font-semibold scroll-animate scroll-animate-right"
+                    data-delay="0">The Social Edge</span>
+                <h2 class="text-[#205872] text-glow text-[40px] font-extrabold lato scroll-animate scroll-animate-left"
+                    data-delay="100">Level Up Your Brand with Expert Social Media Marketing</h2>
+                <img src="assets/images/Vector 1.png" class="scroll-animate scroll-animate-scale" data-delay="200" />
+                <p class="text-[#6E6A74] text-[18px] mt-8 lato scroll-animate scroll-animate-right" data-delay="300">In
+                    today's digital world, your brand's online presence is everything. Whether you're just starting out
+                    or scaling up, expert social media marketing helps you connect, convert, and grow. From strategy to
+                    content, we craft scroll-stopping posts, run targeted ads, and tell stories that build trust and
+                    drive real results across platforms like Instagram, Facebook, and LinkedIn. Let your brand stand
+                    out—we don't just post, we make impact.</p>
+            </div>
+        </div>
+    </div>
+    <div class="w-full bg-[#F5FDFF] h-[70vh] absolute mt-[-430px] z-[-10] flex justify-center">
+        <div>
+            <div class="flex gap-20 justify-center mr-[-438px] mt-5">
+                <ul class="space-y-2 text-[19px] text-[#1d4ed8] font-medium lato scroll-animate scroll-animate-left">
+                    <li class="flex items-center gap-2 " data-delay="0">
+                        <i class="ri-check-line text-[#1d9bf0] font-bold text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Digital Marketing</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="100">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Website Design</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="200">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Digital Marketing</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="300">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Website Design</span>
+                    </li>
+                </ul>
+                <ul class="space-y-2 text-[19px] text-[#1d4ed8] font-medium lato scroll-animate scroll-animate-scale">
+                    <li class="flex items-center gap-2" data-delay="0">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Ads Run</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="100">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Business Profile Optimization</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="200">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Ads Run</span>
+                    </li>
+                    <li class="flex items-center gap-2 " data-delay="300">
+                        <i class="ri-check-line font-bold text-[#1d9bf0] text-3xl"></i>
+                        <span class="text-[#061E42] font-bold">Google Business Profile Optimization</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex items-center mr-[-320px] gap-3 bg-[#f3fbff] p-3 rounded-md scroll-animate scroll-animate-scale"
+                data-delay="400">
+                <div
+                    class="w-[75px] h-[75px] mt-5 rounded-full bg-[#27B3DE] flex items-center justify-center text-white">
+                    <i class="ri-phone-fill text-[45px]"></i>
+                </div>
+
+                <div class="flex flex-col leading-tight mt-5">
+                    <span class="text-[#061E42] lato font-semibold text-[18px] font-bold">Call to ask any
+                        question</span>
+                    <a href="tel:+918240445884" class="text-[#27B3DE] lato text-[40px] font-semibold hover:underline">
+                        +91 8240445884
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full scroll-animate scroll-animate-left flex justify-center mb-20" id="intro" data-delay="0">
+        <div class="w-[90%] justify-center flex-col items-center">
+            <div class="relative ml-[250px] h-[400px] flex items-center justify-center">
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <div class="slide ml-[-220px] relative" id="slide-0">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full flex items-center justify-between bg-[#f0fffa] shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                                            GBP<br> Optimization</h3>
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today's
+                                            digital world, your brand's online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide ml-[-220px] relative" id="slide-1">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                                            GBP<br> Optimization</h3>
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today's
+                                            digital world, your brand's online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide ml-[-220px] relative" id="slide-2">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="ml-[-20px]">
+                                        <img src="assets/images/metagoogleadd.png" class="h-16" />
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                                            GBP<br> Optimization</h3>
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today's
+                                            digital world, your brand's online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide ml-[-220px] relative" id="slide-3">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                                            GBP<br> Optimization</h3>
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today's
+                                            digital world, your brand's online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide ml-[-220px] relative" id="slide-4">
+                        <div
+                            class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
+                            <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="">
+                                        <img src="assets/images/instagram1.webp" class="h-10" />
+                                        <img src="assets/images/facebook.png" class="h-10 ml-5 mt-[-14px]" />
+                                    </div>
+                                    <img src="assets/images/digitalmarketingglow.png"
+                                        class="absolute bottom-0 left-0" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="font-bold text-white text-[21px] leading-tight lato">Digital<br>Marketing
+                                    </h3>
+                                    <img src="assets/images/Vector 9.png " class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="expanded-view hidden w-full h-full">
+                                <div
+                                    class="relative w-full h-full flex items-center justify-between bg-white shadow-md">
+                                    <div
+                                        class="w-[60%] bg-black rounded-tr-[210px] flex flex-col rounded-br-[130px] h-full">
+                                        <h3 class="text-white text-[30px] font-bold ml-[30px] leading-tight mt-8">
+                                            GBP<br> Optimization</h3>
+                                        <img src="assets/images/cardline.png" class="w-[50%] mt-2 ml-[35px]" />
+                                        <p class="text-white ml-[33px] text-[14px] lato mr-[60px] mt-2">In today's
+                                            digital world, your brand's online presence is everything.</p>
+                                        <a href=""
+                                            class="text-[#40C49B] font-bold lato text-[14px] ml-[33px] flex items-center">Read
+                                            More <img src="assets/images/readmorearrow.png" /></a>
+                                    </div>
+                                    <div class="w-[55%] absolute ml-[45%] mr-[5%]">
+                                        <img src="assets/images/googlesearch.gif" class="w-full h-full" />
+                                    </div>
+                                    <img src="assets/images/cardglow.png" class="absolute right-0 top-0" />
+                                    <img src="assets/images/cardbottomglow.png"
+                                        class="absolute bottom-[-14px] left-[-2px]" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-2 mt-8">
+                <button onclick="goToSlide(0)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-0"></button>
+                <button onclick="goToSlide(1)" class="h-2 w-8 rounded-full bg-emerald-400 transition-all dot"
+                    id="dot-1"></button>
+                <button onclick="goToSlide(2)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-2"></button>
+                <button onclick="goToSlide(3)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-3"></button>
+                <button onclick="goToSlide(4)"
+                    class="h-2 w-2 rounded-full bg-gray-400 hover:bg-gray-600 transition-all dot" id="dot-4"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative overflow-hidden h-screen  w-full main-section" id="verticalSlider">
+        <div class="relative h-full w-[90%%] slide-transition" id="sliderWrapper">
+            <!-- SLIDE 1 -->
+            <div class="h-screen flex items-center justify-center  relative">
+
+
+                <div class="relative z-[3] w-[88%] flex justify-end gap-[300px]">
+                    <div class="w-[60%] relative">
+                        <h3 class="text-4xl text-glow font-bold text-[#205872]">
+                            Helping businesses grow with Custom Websites.
+                        </h3>
+                        <p class="mt-10 text-[16px] text-[#6E6A74]">
+                            In today's digital world, your brand's online presence is
+                            everything. Whether you're just starting out or scaling up,
+                            expert social media marketing helps you connect, convert, and
+                            grow. From strategy to content, we craft scroll-stopping posts,
+                            run targeted ads, and tell stories that build trust and drive
+                            real results across platforms like Instagram, Facebook, and
+                            LinkedIn. Let your brand stand out—we don't just post, we make
+                            impact.
+                        </p>
+
+                        <p class="text-black flex items-center gap-4 text-[18px] mt-10">
+                            Technology We Use
+                            <img src="assets/images/Line 13.png" />
+                        </p>
+
+                        <div class="flex gap-4 mt-10">
+                            <img src="assets/images/angular.png" class="h-[40px]" />
+                            <img src="assets/images/react.png" class="h-[40px]" />
+                            <img src="assets/images/wordpress.png" class="h-[40px]" />
+                            <img src="assets/images/shopify.png" class="h-[40px]" />
+                        </div>
+                    </div>
+
+                    <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                        <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="h-screen flex items-center justify-center  relative">
+
+
+                <div class="relative z-[3] w-[88%] flex justify-end gap-[300px]">
+                    <div class="w-[50%] relative">
+                        <h3 class="text-4xl text-glow font-bold text-[#205872]">
+                            Helping businesses grow with Custom Websites.
+                        </h3>
+                        <p class="mt-10 text-[16px] text-[#6E6A74]">
+                            In today's digital world, your brand's online presence is
+                            everything. Whether you're just starting out or scaling up,
+                            expert social media marketing helps you connect, convert, and
+                            grow. From strategy to content, we craft scroll-stopping posts,
+                            run targeted ads, and tell stories that build trust and drive
+                            real results across platforms like Instagram, Facebook, and
+                            LinkedIn. Let your brand stand out—we don't just post, we make
+                            impact.
+                        </p>
+
+                        <p class="text-black flex items-center gap-4 text-[18px] mt-10">
+                            Technology We Use
+                            <img src="assets/images/Line 13.png" />
+                        </p>
+
+                        <div class="flex gap-4 mt-10">
+                            <img src="assets/images/angular.png" class="h-[40px]" />
+                            <img src="assets/images/react.png" class="h-[40px]" />
+                            <img src="assets/images/wordpress.png" class="h-[40px]" />
+                            <img src="assets/images/shopify.png" class="h-[40px]" />
+                        </div>
+                    </div>
+
+                    <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                        <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="h-screen flex items-center justify-center  relative">
+
+
+                <div class="relative z-[3] w-[88%] flex justify-end gap-[300px]">
+                    <div class="w-[50%] relative">
+                        <h3 class="text-4xl text-glow font-bold text-[#205872]">
+                            Helping businesses grow with Custom Websites.
+                        </h3>
+                        <p class="mt-10 text-[16px] text-[#6E6A74]">
+                            In today's digital world, your brand's online presence is
+                            everything. Whether you're just starting out or scaling up,
+                            expert social media marketing helps you connect, convert, and
+                            grow. From strategy to content, we craft scroll-stopping posts,
+                            run targeted ads, and tell stories that build trust and drive
+                            real results across platforms like Instagram, Facebook, and
+                            LinkedIn. Let your brand stand out—we don't just post, we make
+                            impact.
+                        </p>
+
+                        <p class="text-black flex items-center gap-4 text-[18px] mt-10">
+                            Technology We Use
+                            <img src="assets/images/Line 13.png" />
+                        </p>
+
+                        <div class="flex gap-4 mt-10">
+                            <img src="assets/images/angular.png" class="h-[40px]" />
+                            <img src="assets/images/react.png" class="h-[40px]" />
+                            <img src="assets/images/wordpress.png" class="h-[40px]" />
+                            <img src="assets/images/shopify.png" class="h-[40px]" />
+                        </div>
+                    </div>
+
+                    <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                        <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="h-screen flex items-center justify-center  relative">
+
+
+                <div class="relative z-[3] w-[88%] flex justify-end gap-[300px]">
+                    <div class="w-[50%] relative">
+                        <h3 class="text-4xl text-glow font-bold text-[#205872]">
+                            Helping businesses grow with Custom Websites.
+                        </h3>
+                        <p class="mt-10 text-[16px] text-[#6E6A74]">
+                            In today's digital world, your brand's online presence is
+                            everything. Whether you're just starting out or scaling up,
+                            expert social media marketing helps you connect, convert, and
+                            grow. From strategy to content, we craft scroll-stopping posts,
+                            run targeted ads, and tell stories that build trust and drive
+                            real results across platforms like Instagram, Facebook, and
+                            LinkedIn. Let your brand stand out—we don't just post, we make
+                            impact.
+                        </p>
+
+                        <p class="text-black flex items-center gap-4 text-[18px] mt-10">
+                            Technology We Use
+                            <img src="assets/images/Line 13.png" />
+                        </p>
+
+                        <div class="flex gap-4 mt-10">
+                            <img src="assets/images/angular.png" class="h-[40px]" />
+                            <img src="assets/images/react.png" class="h-[40px]" />
+                            <img src="assets/images/wordpress.png" class="h-[40px]" />
+                            <img src="assets/images/shopify.png" class="h-[40px]" />
+                        </div>
+                    </div>
+
+                    <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                        <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="h-screen flex items-center justify-center  relative">
+
+
+                <div class="relative z-[3] w-[88%] flex justify-end gap-[300px]">
+                    <div class="w-[50%] relative">
+                        <h3 class="text-4xl text-glow font-bold text-[#205872]">
+                            Helping businesses grow with Custom Websites.
+                        </h3>
+                        <p class="mt-10 text-[16px] text-[#6E6A74]">
+                            In today's digital world, your brand's online presence is
+                            everything. Whether you're just starting out or scaling up,
+                            expert social media marketing helps you connect, convert, and
+                            grow. From strategy to content, we craft scroll-stopping posts,
+                            run targeted ads, and tell stories that build trust and drive
+                            real results across platforms like Instagram, Facebook, and
+                            LinkedIn. Let your brand stand out—we don't just post, we make
+                            impact.
+                        </p>
+
+                        <p class="text-black flex items-center gap-4 text-[18px] mt-10">
+                            Technology We Use
+                            <img src="assets/images/Line 13.png" />
+                        </p>
+
+                        <div class="flex gap-4 mt-10">
+                            <img src="assets/images/angular.png" class="h-[40px]" />
+                            <img src="assets/images/react.png" class="h-[40px]" />
+                            <img src="assets/images/wordpress.png" class="h-[40px]" />
+                            <img src="assets/images/shopify.png" class="h-[40px]" />
+                        </div>
+                    </div>
+
+                    <div class="relative mr-[-81px] w-[50%] h-[80vh]">
+                        <img src="assets/images/laptop.png" class="relative ml-[-100px]" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="assets/images/drop-shadow.png" class="absolute top-[-100px] pt-[30px] left-[45%] z-[-10] w-[50%]" />
+
+        <img src="assets/images/Rectangle 141.png" class="absolute right-0 top-0" />
+    </div>
+    <section class="py-16 bg-white cursor-pointer" id="about">
+        <div class="text-center mb-8">
+            <h3 class="text-4xl text-glow font-bold text-[#205872]  App_Tiltle scroll-animate scroll-animate-up"
+                data-delay="0">Our
+                Other Services</h3>
+        </div>
+
+        <!-- Slider Container -->
+        <div class="flex justify-center gap-6 px-6 w-full mt-10">
+
+            <div class="w-[90%] ml-[-20px] flex  justify-center gap-[100px]">
+                <div class="w-[25%] flex ">
+                    <div
+                        class="relative z-[10] w-[100%] h-[400px] rounded-[10px] bg-cover bg-center bg-[url('/assets/images/otherservices.png')]">
+                        <div class="absolute inset-0 bg-[#0FAEB9] opacity-50 rounded-[10px]"></div>
+                        <img src="assets/images/mobileimag.png" class="absolute z-[10] h-full mt-[-20px] ml-[30px]" />
+                        <p
+                            class="absolute bottom-[-35px] ml-[20%] text-[22px] text-black z-[10]   font-bold text-[#0000  App_Tiltle ">
+                            App Development</p>
+
+                    </div>
+                    <img src="assets/images/otherserviceshado.jpeg"
+                        class="absolute z-[5] h-[375px] ml-[40px] mt-[60px] " />
+                </div>
+
+                <div class="w-[25%] flex ">
+                    <div
+                        class="relative z-[10] w-[100%] h-[400px] rounded-[10px] bg-cover bg-center bg-[url('/assets/images/otherservices.png')]">
+                        <div class="absolute inset-0 bg-[#0FAEB9] opacity-50 rounded-[10px]"></div>
+                        <img src="assets/images/mobileimag.png" class="absolute z-[10] h-full mt-[-20px] ml-[30px]" />
+                        <p
+                            class="absolute bottom-[-35px] ml-[20%] text-[22px] text-black z-[10]   font-bold text-[#0000  App_Tiltle ">
+                            Web Development</p>
+                    </div>
+                    <img src="assets/images/otherserviceshado.jpeg"
+                        class="absolute z-[5] h-[375px] ml-[40px] mt-[60px] " />
+
+
+                </div>
+                <div class="w-[25%] flex ">
+                    <div
+                        class="relative z-[10] w-[100%] h-[400px] rounded-[10px] bg-cover bg-center bg-[url('/assets/images/otherservices.png')]">
+                        <div class="absolute inset-0 bg-[#0FAEB9] opacity-50 rounded-[10px]"></div>
+                        <img src="assets/images/mobileimag.png" class="absolute z-[10] h-full mt-[-20px] ml-[30px]" />
+                        <p
+                            class="absolute bottom-[-35px] ml-[20%] text-[22px] text-black z-[10]   font-bold text-[#0000  App_Tiltle ">
+                            SEO Optimization</p>
+                    </div>
+                    <img src="assets/images/otherserviceshado.jpeg"
+                        class="absolute z-[5] h-[375px] ml-[40px] mt-[60px] " />
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <div class="w-full flex justify-center absolute mt-[-0px] items-center py-10 scroll-animate scroll-animate-scale"
+        data-delay="0">
+        <div
+            class="w-[87%] bg-center relative bg-cover bg-[url('assets/images/contactbg.jpg')] rounded-[15px] py-6 px-6 flex flex-col items-center text-center shadow-md">
+            <h3 class="text-glow font-semibold text-[39px] tracking-wide mb-2 relative lato">
+                CALL FOR ANY QUERY
+                <img src="assets/images/contactvector.png" class="ml-[20px]" />
+            </h3>
+
+            <img src="assets/images/callvector.png" class="absolute left-[-2px] bottom-[-3px]" />
+            <div class="flex items-center mt-[-20px] gap-3 p-3 rounded-md">
+                <div
+                    class="w-[60px] h-[60px] mt-5 rounded-full bg-[#27B3DE] flex items-center justify-center text-white">
+                    <i class="ri-phone-fill text-[45px]"></i>
+                </div>
+
+                <div class="flex flex-col leading-tight mt-5">
+                    <a href="tel:+918240445884"
+                        class="text-black no-underline lato text-[34px] font-semibold hover:underline-none">
+                        +91 8240445884
+                    </a>
+                </div>
+            </div>
+            <img src="assets/images/callvector2.png" class="absolute right-[-2px] top-[-3px]" />
+        </div>
+    </div>
+    <div class="w-full bg-[#E8F8F3] flex justify-center min-h-[100vh] mt-[150px]">
+        <div class="w-[87%] gap-8 flex justify-center pt-[180px] pb-[100px]">
+            <div class="w-[35%] h-[93vh] bg-cover rounded-[30px] bg-center bg-[url('assets/images/man.jpg')] scroll-animate scroll-animate-left"
+                data-delay="0"></div>
+            <div class="w-[65%]">
+                <div class="relative">
+                    <h3 class="text-[40px] lato text-glow leading-tight scroll-animate scroll-animate-right"
+                        data-delay="0">Snapshots of Dedication. Frames of Innovation.</h3>
+                    <img src="assets/images/Vector 12.png" class="absolute mt-[-50px] left-[240px]" />
+                    <p class="lato text-[16px] mt-3 text-[#6E6A74] scroll-animate scroll-animate-left" data-delay="100">
+                        In today's digital world, your brand's online presence is everything. Whether
+                        you're just starting out or scaling up, expert social media marketing helps you connect,
+                        convert, and grow.</p>
+                </div>
+                <div class="w-full flex gap-5 justify-center mt-5">
+                    <div class="w-[70%] rounded-[30px] bg-cover h-[30vh] bg-center bg-no-repeat bg-[url('assets/images/kylegn1.webp')] scroll-animate scroll-animate-left"
+                        data-delay="200"></div>
+                    <div class="w-[30%] rounded-[30px] bg-center bg-no-repeat bg-[url('assets/images/kylemotivation.webp')] scroll-animate scroll-animate-right"
+                        data-delay="300"></div>
+                </div>
+                <div class="w-full flex gap-5 justify-center mt-5">
+                    <div class="w-[30%] rounded-[30px] bg- bg-no-repeat bg-[url('assets/images/joyda_sit.webp')] scroll-animate scroll-animate-right"
+                        data-delay="200"></div>
+                    <div class="w-[70%] rounded-[30px] bg-cover h-[30vh] bg-center bg-no-repeat bg-[url('assets/images/pabitrada.webp')] scroll-animate scroll-animate-left"
+                        data-delay="300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full  relative py-10 min-h-[140vh]  flex justify-center items-center">
+        <div class="">
+            <!--first section reviews -->
+             <div class="w-full flex justify-center">
+                <div class="w-[80%] relative mt-[100px] flex justify-between">
+                   
+                    <!---second review -->
+                    <div class=" ">
+                        <div class="absolute w-[260px] top-[-60px] ml-[330px] py-2 rounded-[10px]   bg-black/80">
+                            <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                                <p class="text-2xl font-bold text-white ">5.0</p>
+                                <div class="flex gap-[2px]">
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                </div>
+                            </div>
+                            <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                        </div>
+                        <div
+                            class="h-[100px] w-[100px] ml-[290px] mt-[30px]  rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                            <img src="assets/images/sayak.png" class="w-[80px]" />
+                        </div>
+                    </div>
+                    <!----third review -->
+                    <div class=" relative">
+                        <div class="absolute w-[260px]  py-2 ml-[-150px] mt-[-30px] rounded-[10px]   bg-black/80">
+                            <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                                <p class="text-2xl font-bold text-white ">5.0</p>
+                                <div class="flex gap-[2px]">
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                </div>
+                            </div>
+                            <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                        </div>
+                        <div
+                            class="h-[100px] w-[100px] ml-[50px] mt-[-140px]  rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                            <img src="assets/images/client1.png" class="w-[80px]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--shape designs and reviews-->
+            <div class=" flex py-10 w-[100vw]">
+                <!---first shape and review -->
+
+                <div class="h-[70px] w-[38%] bg-[#98e5f6] rounded-tr-[150px]">
+                    <div class="absolute w-[300px] h-[180px] rounded-[10px] top-[155px] ml-[70px]  bg-black/80">
+                        <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                            <p class="text-3xl font-bold text-white ">5.0</p>
+                            <div class="flex gap-[2px]">
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                            </div>
+                        </div>
+                        <p class="text-white ml-[20px]">I am very satisfied , they really worked so good , and they
+                            provide quality design and development </p>
+                        <p class="text-[19px] text-glow font-bold mt-1 ml-[20px] ">Lorem Name here</p>
+                        <p class="text-[16px] text-white  ml-[20px] mb-4 ">Founder , Lorem</p>
+                    </div>
+                    <div
+                        class="h-[100px] w-[100px] ml-[50px] mt-[-15px] rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                        <img src="assets/images/client2.png" class="w-[80px]" />
+                    </div>
+                </div>
+
+                <div
+                    class="h-[70px] absolute mt-[50px] ml-[30%] rounded-tr-[150px] rounded-tl-[30px] w-[38%] bg-[#98e5f6] rounded-bl-[150px]">
+                    <!---second shape and review -->
+
+                    <div class="absolute w-[250px] py-2  rounded-[10px] bottom-[90px] ml-[280px]  bg-black/80">
+                        <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                            <p class="text-2xl font-bold text-white ">5.0</p>
+                            <div class="flex gap-[2px]">
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                            </div>
+                        </div>
+                        <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                    </div>
+                    <div
+                        class="h-[100px] w-[100px] ml-[250px] mt-[-15px] rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                        <img src="assets/images/client3.png" class="w-[80px]" />
+                    </div>
+                </div>
+                <div
+                    class="h-[70px] absolute mt-[100px] ml-[60%] rounded-tl-[30px] w-[42%] bg-[#98e5f6] rounded-bl-[150px]">
+                    <div class="absolute w-[250px] py-2  rounded-[10px] bottom-[90px] ml-[280px]  bg-black/80">
+                        <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                            <p class="text-2xl font-bold text-white ">5.0</p>
+                            <div class="flex gap-[2px]">
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                                <img src="assets/images/star.png" />
+                            </div>
+                        </div>
+                        <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                    </div>
+                    <!---third shape and review -->
+                    <div
+                        class="h-[100px] w-[100px] ml-[250px]  mt-[-15px] rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                        <img src="assets/images/client5.png" class="w-[80px]" />
+                    </div>
+                </div>
+
+
+            </div>
+            <!----Below shape design and reviews-->
+            <div class="w-full flex justify-center">
+                <div class="w-[80%] relative mt-[100px] flex justify-between">
+                    <!---first review -->
+                    <div class="">
+                        <div class="absolute w-[260px] top-[-70px] py-2 rounded-[10px]  ml-[70px]  bg-black/80">
+                            <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                                <p class="text-2xl font-bold text-white ">5.0</p>
+                                <div class="flex gap-[2px]">
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                </div>
+                            </div>
+                            <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                        </div>
+                        <div
+                            class="h-[100px] w-[100px] ml-[50px] mt-[20px]  rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                            <img src="assets/images/client1.png" class="w-[80px]" />
+                        </div>
+                    </div>
+                    <!---second review -->
+                    <div class=" ">
+                        <div class="absolute w-[260px] top-[130px] ml-[-140px] py-2 rounded-[10px]   bg-black/80">
+                            <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                                <p class="text-2xl font-bold text-white ">5.0</p>
+                                <div class="flex gap-[2px]">
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                </div>
+                            </div>
+                            <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                        </div>
+                        <div
+                            class="h-[100px] w-[100px] ml-[50px] mt-[20px]  rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                            <img src="assets/images/client1.png" class="w-[80px]" />
+                        </div>
+                    </div>
+                    <!----third review -->
+                    <div class=" relative">
+                        <div class="absolute w-[260px]  py-2 ml-[-150px] rounded-[10px]   bg-black/80">
+                            <div class="flex gap-2 ml-[20px] mt-[10px] ">
+                                <p class="text-2xl font-bold text-white ">5.0</p>
+                                <div class="flex gap-[2px]">
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                    <img src="assets/images/star.png" />
+                                </div>
+                            </div>
+                            <p class="text-white ml-[20px] text-[16px]">they work really good , i am...</p>
+
+                        </div>
+                        <div
+                            class="h-[100px] w-[100px] ml-[50px] mt-[95px]  rounded-full border-[2px] border-[#28BBE9] flex justify-center items-center">
+                            <img src="assets/images/client1.png" class="w-[80px]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-container">
+        <div id="custom-cursor"></div>
+        <div id="cursor-trail"></div>
+
+        <footer class="relative bg-cover bg-center min-h-[120vh] text-white"
+            style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('assets/images/footerbg.jpg');">
+            <div class="absolute inset-0 bg-black/70"></div>
+
+            <div class="relative z-10 w-full mx-auto flex flex-col items-center justify-center h-full space-y-12">
+                <div class="w-[90%] flex justify-center">
+                    <div class="text-center mt-10">
+                        <h2 class="text-5xl font-bold mb-8 tracking-wider pt-10 hoverable-text scroll-animate scroll-animate-up"
+                            data-delay="0">INSTANT CONTACT</h2>
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full scroll-animate scroll-animate-up"
+                            data-delay="100">
+                            <input type="text" placeholder="Name"
+                                class="w-[330px] bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Phone No."
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="email" placeholder="Email"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Service You Choose"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                        </form>
+
+                        <button
+                            class="mt-8 text-white w-[230px] bg-gradient-to-r from-[#3ABDFD] to-[#38E8AF] text-[30px] font-semibold px-10 py-2 rounded-full hover:opacity-90 transition-all hoverable-button scroll-animate scroll-animate-scale"
+                            data-delay="200">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+
+                <img src="assets/images/footereclip.png" class="absolute z-[-11] scale-x-[-1] left-0" />
+                <div class="absolute top-[45%] right-[10%] pb-4">
+                    <div class="flex-col items-center justify-center gap-10">
+                        <div class="flex justify-center gap-4 items-center relative">
+                            <div class="text-white text-lg font-semibold mt-8 ml-2 tracking-wide">IN</div>
+                          
+                            <div id="clock-india"
+                                class="relative w-16 h-16 rounded-full mt-8  border-2 border-cyan-400 ">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center gap-4 items-center relative">
+                            <div class="text-white text-lg font-semibold mt-8 ml-3 tracking-wide">AU</div>
+                        
+                            <div id="clock-australia" class="relative w-16 h-16 rounded-full mt-8  border-2">
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 ml-6 items-center relative justify-center">
+                            <div class="text-white text-lg font-semibold  mt-8 tracking-wide">UK</div>
+                            
+                            <div id="clock-uk" class="relative w-16 h-16 rounded-full mt-8  border-2 border-pink-400 ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="animated-bg mouse-glow bg-[radial-gradient(circle_at_center,_#00332F,_#000000,_#006345)] h-[120vh] rounded-tl-[700px] py-12 px-10 md:px-20 w-full border-t-[2px] border-l-[2px] border-[#6FACAB]">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                        <div class="mt-[270px] scroll-animate scroll-animate-left" data-delay="0">
+                            <div class="flex items-center px-3 ml-[-20px] mb-5 bg-white w-[240px] py-2 rounded-[10px]">
+                                <img src="assets/images/logo.png" />
+                            </div>
+                            <p class="text-gray-300 leading-relaxed lato mt-10 text-[16px] ml-[-10px] hoverable-text">
+                                Kyle Infotech is a forward-thinking IT company dedicated to delivering smart, scalable,
+                                and reliable technology solutions for businesses of all sizes.
+                            </p>
+                        </div>
+
+                        <div class="mt-[150px] ml-10 scroll-animate scroll-animate-right" data-delay="100">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Quick Links</h3>
+                            <ul class="space-y-2 text-gray-300 text-[20px] lato">
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Home</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">About us</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Our Services</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Projects</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Contact</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-[70px] scroll-animate scroll-animate-left" data-delay="100">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Contact Info</h3>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-map-pin-line text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">32 Loren Rd, Lorem BR2 88A, United Kingdom</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-mail-line text-[#72F5CD] text-[20px]"></i>
+                                <p class="text-gray-300 text-[20px]">loren@testmail.com</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-phone-line text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">+918240445884</p>
+                            </div>
+                        </div>
+
+                        <div class="scroll-animate scroll-animate-right" data-delay="200">
+                            <h3 class="font-semibold mb-4 text-[28px] mt-5 lato hoverable-text">Working Hours</h3>
+                            <p class="text-gray-300 text-[18px] hoverable-text">Always here when you need 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex justify-end h-[33vh] mt-1">
+                        <div
+                            class="w-[70%] flex justify-end items-center border-t-[1px] border-[#8E8E8E] mr-[-80px] rounded-tl-[1000px]">
+                            <div class="flex gap-2 items-center mt-[-210px] mr-[130px] scroll-animate scroll-animate-scale"
+                                data-delay="0">
+                                <div
+                                    class="flex justify-center bg-gradient-to-r from-[#25ABD4] to-[#40C49B] text-white items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-facebook-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-instagram-line text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-linkedin-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-youtube-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-twitter-x-line text-[20px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function createClock(id, offset) {
+            const clock = document.getElementById(id);
+            const center = 30;
+            const radius = 22;
+
+            for (let i = 1; i <= 12; i++) {
+                const num = document.createElement("div");
+                num.textContent = i;
+                num.className = "absolute text-[10px] text-gray-300 font-semibold";
+                const angle = (i / 12) * 2 * Math.PI;
+                const x = center + radius * Math.sin(angle);
+                const y = center - radius * Math.cos(angle);
+                num.style.left = `${x}px`;
+                num.style.top = `${y}px`;
+                num.style.transform = "translate(-50%, -50%)";
+                clock.appendChild(num);
+            }
+
+            const hour = document.createElement("div");
+            hour.className = "absolute left-1/2 bottom-1/2 w-[3px] h-[22px] bg-white origin-bottom rounded-full transform -translate-x-1/2 shadow-[0_0_6px_white]";
+            clock.appendChild(hour);
+
+            const minute = document.createElement("div");
+            minute.className = "absolute left-1/2 bottom-1/2 w-[2px] h-[24px] bg-cyan-400 origin-bottom rounded-full transform -translate-x-1/2 shadow-[0_0_6px_#39C5ED]";
+            clock.appendChild(minute);
+
+            const second = document.createElement("div");
+            second.className = "absolute left-1/2 bottom-1/2 w-[1px] h-[28px] bg-[#ff5722] origin-bottom transform -translate-x-1/2 shadow-[0_0_6px_#ff5722]";
+            clock.appendChild(second);
+
+            const dot = document.createElement("div");
+            dot.className = "absolute w-[8px] h-[8px] bg-white rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_white]";
+            clock.appendChild(dot);
+
+            function updateClock() {
+                const now = new Date();
+                const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+                const local = new Date(utc + offset * 3600000);
+
+                const hr = local.getHours() % 12;
+                const min = local.getMinutes();
+                const sec = local.getSeconds();
+
+                const hrDeg = (hr + min / 60) * 30;
+                const minDeg = (min + sec / 60) * 6;
+                const secDeg = sec * 6;
+
+                hour.style.transform = `translateX(-50%) rotate(${hrDeg}deg)`;
+                minute.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+                second.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        createClock("clock-india", 5.5);
+        createClock("clock-australia", 11);
+        createClock("clock-uk", 0);
+    </script>
+    <script>
+        const slider = document.getElementById("text-slider");
+
+        gsap.to(slider, {
+            x: "-50%",
+            duration: 20,
+            ease: "linear",
+            repeat: -1
+        });
+    </script>
+    <script>
+        class ScrollAnimationController {
+            constructor() {
+                this.elements = [];
+                this.lastScrollY = window.scrollY;
+                this.ticking = false;
+                this.SCROLL_MULTIPLIER = 5;
+                this.init();
+            }
+
+            init() {
+                const animatedElements = document.querySelectorAll('.scroll-animate');
+                animatedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const delay = parseInt(el.getAttribute('data-delay')) || 0;
+
+                    this.elements.push({
+                        el: el,
+                        direction: this.getDirection(el),
+                        delay: delay,
+                        originalRect: {
+                            top: rect.top + window.scrollY,
+                            bottom: rect.bottom + window.scrollY
+                        }
+                    });
+                });
+
+                window.addEventListener('scroll', () => this.onScroll());
+                this.update();
+            }
+
+            getDirection(el) {
+                if (el.classList.contains('scroll-animate-left')) return 'left';
+                if (el.classList.contains('scroll-animate-right')) return 'right';
+                if (el.classList.contains('scroll-animate-up')) return 'up';
+                if (el.classList.contains('scroll-animate-down')) return 'down';
+                if (el.classList.contains('scroll-animate-scale')) return 'scale';
+                return 'left';
+            }
+
+            onScroll() {
+                this.lastScrollY = window.scrollY;
+                if (!this.ticking) {
+                    window.requestAnimationFrame(() => {
+                        this.update();
+                        this.ticking = false;
+                    });
+                    this.ticking = true;
+                }
+            }
+
+            update() {
+                const windowHeight = window.innerHeight;
+                const scrollY = this.lastScrollY;
+
+                this.elements.forEach(item => {
+                    const elementTop = item.originalRect.top;
+                    const elementBottom = item.originalRect.bottom;
+                    const elementHeight = elementBottom - elementTop;
+
+                    const visibleStart = scrollY + windowHeight;
+                    const visibleEnd = scrollY;
+
+                    let progress = 0;
+
+                    if (visibleStart > elementTop && visibleEnd < elementBottom) {
+                        const totalDistance = windowHeight + elementHeight;
+                        const currentDistance = visibleStart - elementTop;
+                        progress = Math.max(0, Math.min(1, currentDistance / totalDistance));
+                    } else if (visibleEnd >= elementBottom) {
+                        progress = 1;
+                    }
+
+                    this.applyAnimation(item, progress);
+                });
+            }
+
+            applyAnimation(item, progress) {
+                const { el, direction, delay } = item;
+
+                const delayedProgress = Math.max(0, progress - (delay / 1000));
+                const clampedProgress = Math.max(0, Math.min(1, delayedProgress * this.SCROLL_MULTIPLIER));
+                const easeProgress = this.easeOutCubic(clampedProgress);
+
+                let transform = '';
+                const opacity = Math.min(1, easeProgress * 1.5);
+
+                switch (direction) {
+                    case 'left':
+                        const xLeft = -150 + (easeProgress * 150);
+                        transform = `translateX(${xLeft}px)`;
+                        break;
+
+                    case 'right':
+                        const xRight = 150 - (easeProgress * 150);
+                        transform = `translateX(${xRight}px)`;
+                        break;
+
+                    case 'up':
+                        const yUp = 150 - (easeProgress * 150);
+                        transform = `translateY(${yUp}px)`;
+                        break;
+
+                    case 'down':
+                        const yDown = -150 + (easeProgress * 150);
+                        transform = `translateY(${yDown}px)`;
+                        break;
+
+                    case 'scale':
+                        const scale = 0.5 + (easeProgress * 0.5);
+                        transform = `scale(${scale})`;
+                        break;
+                }
+
+                el.style.transform = transform;
+                el.style.opacity = opacity;
+            }
+
+            easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScrollAnimationController();
+        });
+
+        const words = ['Websites', 'E-Commerce'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeEffect() {
+            const typingElement = document.getElementById('typingText');
+            const currentWord = words[wordIndex];
+
+            if (!isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex);
+                charIndex++;
+
+                if (charIndex > currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, pauseTime);
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+            }
+
+            setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            typeEffect();
+        });
+
+        let currentIndex = 1;
+        let isAnimating = false;
+        const totalSlides1 = 5;
+
+        function updateSlides() {
+            for (let i = 0; i < totalSlides1; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                const slideContent = slide.querySelector('.slide-content');
+                const compactView = slide.querySelector('.compact-view');
+                const expandedView = slide.querySelector('.expanded-view');
+                const dot = document.getElementById(`dot-${i}`);
+
+                slide.classList.remove('slide-center', 'slide-left', 'slide-right', 'slide-hidden');
+
+                if (i === currentIndex) {
+                    dot.classList.remove('w-2', 'bg-gray-400');
+                    dot.classList.add('w-8', 'bg-emerald-400');
+                } else {
+                    dot.classList.remove('w-8', 'bg-emerald-400');
+                    dot.classList.add('w-2', 'bg-gray-400');
+                }
+
+                let diff = i - currentIndex;
+                if (diff > totalSlides1 / 2) diff -= totalSlides1;
+                if (diff < -totalSlides1 / 2) diff += totalSlides1;
+
+                let position;
+                if (diff === 0) {
+                    position = 'center';
+                    slideContent.classList.remove('compact-card');
+                    slideContent.classList.add('expanded-card');
+                    compactView.classList.add('hidden');
+                    expandedView.classList.remove('hidden');
+                } else if (diff === -1) {
+                    position = 'left';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                } else if (diff === 1) {
+                    position = 'right';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                } else {
+                    position = 'hidden';
+                    slideContent.classList.remove('expanded-card');
+                    slideContent.classList.add('compact-card');
+                    compactView.classList.remove('hidden');
+                    expandedView.classList.add('hidden');
+                }
+
+                slide.classList.add(`slide-${position}`);
+            }
+        }
+
+        function goToSlide(index) {
+            if (isAnimating) return;
+            isAnimating = true;
+            if (index < 0) {
+                currentIndex = totalSlides1 - 1;
+            } else if (index >= totalSlides1) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            updateSlides();
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 600);
+        }
+
+        // Initialize slides on load
+        updateSlides();
+
+        // 🔄 Optional: Auto-slide every 4 seconds (remove this block if you don’t want auto rotation)
+        let autoSlide = setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 4000);
+
+        // ⏸️ Pause auto-slide on hover (nice UX touch)
+        // const intro = document.getElementById("intro");
+        // intro.addEventListener("mouseenter", () => clearInterval(autoSlide));
+        // intro.addEventListener("mouseleave", () => {
+        //     autoSlide = setInterval(() => {
+        //         goToSlide(currentIndex + 1);
+        //     }, 4000);
+        // });
+
+
+        document.querySelectorAll(".mouse-glow").forEach((card, i) => {
+            const glow = card.querySelector(`#glow-layer-${i + 1}`);
+
+            if (glow) {
+                glow.style.opacity = "0";
+                glow.style.transition = "opacity 0.3s ease, background 0.15s ease-out";
+                glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+
+                card.addEventListener("mouseenter", () => {
+                    glow.style.opacity = "1";
+                    glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+                });
+
+                card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = 20;
+                    glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    glow.style.opacity = "0";
+                    glow.style.transition = "opacity 0.4s ease, background 0.4s ease-out";
+                    glow.style.background = `radial-gradient(circle at 20px 20px, rgba(64, 196, 155, 1) 0%, transparent 30%)`;
+                });
+            }
+        });
+
+        const footerContainer = document.getElementById('footer-container');
+        const cursor = document.getElementById('custom-cursor');
+        const cursorTrail = document.getElementById('cursor-trail');
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        footerContainer.addEventListener('mouseenter', () => {
+            footerContainer.classList.add('cursor-active');
+        });
+
+        footerContainer.addEventListener('mouseleave', () => {
+            footerContainer.classList.remove('cursor-active');
+        });
+
+        footerContainer.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        footerContainer.addEventListener('mousedown', () => {
+            footerContainer.classList.add('clicking');
+        });
+
+        footerContainer.addEventListener('mouseup', () => {
+            footerContainer.classList.remove('clicking');
+        });
+
+        function animateCursor() {
+            const speed = 0.15;
+            const trailSpeed = 0.1;
+
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+
+            trailX += (mouseX - trailX) * trailSpeed;
+            trailY += (mouseY - trailY) * trailSpeed;
+
+            cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+            cursorTrail.style.transform = `translate(${trailX - 20}px, ${trailY - 20}px)`;
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        const hoverableText = footerContainer.querySelectorAll('.hoverable-text, .hoverable-link');
+        const hoverableButtons = footerContainer.querySelectorAll('.hoverable-button, .hoverable-input');
+
+        hoverableText.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                footerContainer.classList.add('hovering-text');
+            });
+            element.addEventListener('mouseleave', () => {
+                footerContainer.classList.remove('hovering-text');
+            });
+        });
+
+        hoverableButtons.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                footerContainer.classList.add('hovering-clickable');
+            });
+            element.addEventListener('mouseleave', () => {
+                footerContainer.classList.remove('hovering-clickable');
+            });
+        });
+    </script>
+    <script>
+        class VerticalSlider {
+            constructor(containerId, wrapperId) {
+                this.container = document.getElementById(containerId);
+                this.wrapper = document.getElementById(wrapperId);
+                this.slides = this.wrapper.querySelectorAll("div.h-screen");
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                this.isAnimating = false;
+                this.wheelThrottle = null;
+                this.THROTTLE_DELAY = 1000;
+                this.active = false; // 👈 slider starts inactive
+                this.init();
+            }
+
+            init() {
+                this.updateSliderPosition(false);
+                this.attachEvents();
+                this.observeContainerVisibility(); // 👈 start observing visibility
+            }
+
+            observeContainerVisibility() {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            // activate when at least 50% visible
+                            this.active = entry.intersectionRatio >= 0.5;
+                        });
+                    },
+                    {
+                        threshold: [0, 0.5, 1],
+                    }
+                );
+                observer.observe(this.container);
+            }
+
+            attachEvents() {
+                this.container.addEventListener(
+                    "wheel",
+                    (e) => this.handleWheel(e),
+                    { passive: false }
+                );
+                let touchStartY = 0;
+                let touchEndY = 0;
+
+                this.container.addEventListener(
+                    "touchstart",
+                    (e) => (touchStartY = e.touches[0].clientY),
+                    { passive: true }
+                );
+                this.container.addEventListener(
+                    "touchend",
+                    (e) => {
+                        touchEndY = e.changedTouches[0].clientY;
+                        this.handleSwipe(touchStartY, touchEndY);
+                    },
+                    { passive: true }
+                );
+            }
+
+            handleWheel(e) {
+                if (!this.active) return; // 👈 only work when active
+                if (this.isAnimating || this.wheelThrottle) {
+                    e.preventDefault();
+                    return;
+                }
+
+                e.preventDefault();
+
+                if (e.deltaY > 0) {
+                    this.nextSlide();
+                } else {
+                    this.prevSlide();
+                }
+
+                this.wheelThrottle = setTimeout(
+                    () => (this.wheelThrottle = null),
+                    this.THROTTLE_DELAY
+                );
+            }
+
+            handleSwipe(startY, endY) {
+                if (!this.active) return; // 👈 only work when active
+                const diff = startY - endY;
+                const minSwipe = 50;
+                if (Math.abs(diff) > minSwipe) {
+                    if (diff > 0) this.nextSlide();
+                    else this.prevSlide();
+                }
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.goToSlide(this.currentSlide + 1);
+                } else {
+                    const nextSection = document.querySelector("#about");
+                    if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.goToSlide(this.currentSlide - 1);
+                } else {
+                    const prevSection = document.querySelector("#intro");
+                    if (prevSection) prevSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            goToSlide(index) {
+                if (
+                    this.isAnimating ||
+                    index === this.currentSlide ||
+                    index < 0 ||
+                    index >= this.totalSlides
+                )
+                    return;
+
+                this.isAnimating = true;
+                this.currentSlide = index;
+                this.updateSliderPosition(true);
+
+                setTimeout(() => {
+                    this.isAnimating = false;
+                }, 800);
+            }
+
+            updateSliderPosition(animated) {
+                const translateY = -this.currentSlide * 100;
+                this.wrapper.style.transform = `translateY(${translateY}vh)`;
+                if (animated) {
+                    this.wrapper.style.transition = "transform 0.8s ease";
+                } else {
+                    this.wrapper.style.transition = "none";
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            new VerticalSlider("verticalSlider", "sliderWrapper");
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 50,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
