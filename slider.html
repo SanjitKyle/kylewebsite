@@ -19,13 +19,13 @@
     }
 
     .slide-left {
-      transform: translateX(-120%) scale(1);
+      transform: translateX(-200%) scale(1);
       z-index: 10;
       opacity: 1;
     }
 
     .slide-right {
-      transform: translateX(120%) scale(1);
+      transform: translateX(200%) scale(1);
       z-index: 10;
       opacity: 1;
     }
@@ -72,7 +72,7 @@
         <div class="relative w-full h-full flex items-center justify-center">
 
           <!-- SLIDE 0 -->
-          <div class="slide ml-[-220px] relative" id="slide-0">
+          <div class="slide ml-[-220px]" id="slide-0">
             <div
               class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
               <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
@@ -112,7 +112,7 @@
           </div>
 
           <!-- SLIDE 1 -->
-          <div class="slide ml-[-220px] relative" id="slide-1">
+          <div class="slide ml-[-220px]" id="slide-1">
             <div
               class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
               <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
@@ -152,7 +152,7 @@
           </div>
 
           <!-- SLIDE 2 -->
-          <div class="slide ml-[-220px] relative" id="slide-2">
+          <div class="slide ml-[-220px]" id="slide-2">
             <div
               class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
               <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
@@ -191,7 +191,7 @@
           </div>
 
           <!-- SLIDE 3 -->
-          <div class="slide ml-[-220px] relative" id="slide-3">
+          <div class="slide ml-[-220px]" id="slide-3">
             <div
               class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
               <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
@@ -231,7 +231,7 @@
           </div>
 
           <!-- SLIDE 4 -->
-          <div class="slide ml-[-220px] relative" id="slide-4">
+          <div class="slide ml-[-220px]" id="slide-4">
             <div
               class="slide-content compact-card rounded-tr-[50px] rounded-[20px] bg-black shadow-2xl overflow-hidden">
               <div class="compact-view w-full h-full p-4 flex mr-[100px] items-center gap-3">
@@ -389,6 +389,126 @@
   </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Global Custom Cursor -->
+<div id="global-custom-cursor" class="cursor-normal" style="position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 999999; display: none; transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;"></div>
+<style>
+    /* Hide system cursor globally */
+    @media (hover: hover) and (pointer: fine) {
+        * {
+            cursor: none !important;
+        }
+    }
+    
+    /* Normal state: small black dot */
+    .cursor-normal {
+        width: 12px !important;
+        height: 12px !important;
+        background-color: black !important;
+        mix-blend-mode: normal !important;
+    }
+    
+    /* Expanded state: large inverted lens */
+    .cursor-expanded {
+        width: 80px !important;
+        height: 80px !important;
+        background-color: white !important;
+        mix-blend-mode: difference !important;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const globalCursor = document.getElementById('global-custom-cursor');
+        if(!globalCursor) return;
+        
+        // Hide old cursors
+        const oldCursor = document.getElementById('custom-cursor');
+        const oldTrail = document.getElementById('cursor-trail');
+        if(oldCursor) oldCursor.style.display = 'none';
+        if(oldTrail) oldTrail.style.display = 'none';
+
+        let cursorX = window.innerWidth / 2;
+        let cursorY = window.innerHeight / 2;
+        let mouseX = cursorX;
+        let mouseY = cursorY;
+        let isMoving = false;
+        let currentSize = 12; // Start with normal size
+        let targetSize = 12;
+        
+        document.addEventListener('mousemove', (e) => {
+            if(!isMoving) {
+                globalCursor.style.display = 'block';
+                isMoving = true;
+            }
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateGlobalCursor() {
+            const speed = 0.2;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            
+            // Smoothly animate the offset size so the center stays perfectly aligned during transition
+            currentSize += (targetSize - currentSize) * 0.2;
+            const offset = currentSize / 2;
+            
+            globalCursor.style.transform = `translate(${cursorX - offset}px, ${cursorY - offset}px)`;
+            requestAnimationFrame(animateGlobalCursor);
+        }
+        animateGlobalCursor();
+        
+        const targetElements = 'h1, h2, h3, h4, h5, h6, p, img, a, button, .swiper-slide, .hoverable-text, .hoverable-link, .group, .card';
+        
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(targetElements)) {
+                globalCursor.classList.remove('cursor-normal');
+                globalCursor.classList.add('cursor-expanded');
+                targetSize = 80;
+            }
+        });
+        
+        document.addEventListener('mouseout', (e) => {
+            const target = e.target.closest(targetElements);
+            if (target) {
+                setTimeout(() => {
+                    if (!document.querySelector(':hover')?.closest(targetElements)) {
+                        globalCursor.classList.remove('cursor-expanded');
+                        globalCursor.classList.add('cursor-normal');
+                        targetSize = 12;
+                    }
+                }, 10);
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
+
+

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=App_Title&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto { font-family: 'Roboto', sans-serif; }
+        .App_Tiltle { font-family: 'App_Title', sans-serif; }
+        .glow { animation: weaveGlow 2.5s ease-in-out infinite; }
+        @keyframes weaveGlow {
+            0% { box-shadow: 0 0 15px 5px rgba(0, 195, 255, 0.3), 0 0 25px 10px rgba(0, 255, 200, 0.3); }
+            25% { box-shadow: 0 0 25px 10px rgba(0, 195, 255, 0.5), 0 0 35px 15px rgba(0, 195, 255, 0.5); }
+            75% { box-shadow: 0 0 10px 5px rgba(0, 195, 255, 0.3), 0 0 15px 10px rgba(0, 195, 255, 0.5); }
+        }
+        .lato { font-family: 'Lato', sans-serif; }
+        .slide { transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); position: absolute; }
+        .slide-center { transform: translateX(0) scale(1); z-index: 20; opacity: 1; }
+        .slide-left { transform: translateX(-120%) scale(1); z-index: 10; opacity: 1; }
+        .slide-right { transform: translateX(120%) scale(1); z-index: 10; opacity: 1; }
+        .slide-hidden { opacity: 0; pointer-events: none; transform: translateX(0) scale(0.8); }
+        .slide-content { transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .compact-card { width: 240px; height: 100px; }
+        .expanded-card { width: 500px; height: 280px; }
+        @media (max-width: 768px) {
+            .compact-card { width: 200px; height: 90px; }
+            .expanded-card { width: 90vw; height: 250px; }
+        }
+        .glow { box-shadow: 0 0 20px rgba(39, 179, 222, 0.8), 0 0 40px rgba(39, 179, 222, 0.4); }
+        .fade-in-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in-left.active { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(50px); transition: opacity 1s ease, transform 1s ease; }
+        .fade-in-right.active { opacity: 1; transform: translateX(0); }
+        .scale-in { opacity: 0; transform: scale(0.8); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scale-in.active { opacity: 1; transform: scale(1); }
+        .typing-cursor { border-right: 3px solid #28BBE9; animation: blink 0.7s infinite; }
+        @keyframes blink {
+            0%, 50% { border-color: #28BBE9; }
+            51%, 100% { border-color: transparent; }
+        }
+        @keyframes bgMove {
+            0%, 100% { background-position: center top; }
+            50% { background-position: center bottom; }
+        }
+        .animated-bg { background-size: 150% 150%; animation: bgMove 4s ease-in-out infinite; }
+        body { overflow-x: hidden; }
+        .main-section { position: relative; overflow: hidden; }
+        .main-section::after { content: ""; position: absolute; right: 0; top: 0; width: 40%; height: 80vh; background: url('assets/images/bannerimage.png') center/cover no-repeat; border-top-left-radius: 300px; border-bottom-left-radius: 300px; z-index: 1; }
+        .main-section::before { content: ""; position: absolute; right: 0; top: 0; width: 40%; height: 80vh; background: rgba(0, 10, 25, 0.81); border-top-left-radius: 300px; border-bottom-left-radius: 300px; z-index: 2; }
+        .main-section > * { position: relative; z-index: 3; }
+    </style>
+</head>
+<body>
+    <div class="w-full min-h-[115vh] bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[550px] relative">
+        <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[550px] min-h-[115vh]"></div>
+
+        <div class="relative w-full flex justify-center fade-in-up">
+            <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
+                <div class="flex gap-2 text-white items-center">
+                    <i class="ri-map-pin-2-fill text-white"></i>
+                    <p class="text-[14px] roboto">AA 195, AA Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064, India</p>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="flex text-white text-[14px] gap-2 roboto items-center">
+                        <i class="ri-phone-fill text-white text-[20px]"></i>+918240445884
+                    </div>
+                    <div class="flex text-white items-center gap-2 text-[14px] roboto">
+                        <i class="ri-mail-fill text-[20px]"></i>info@kyleinfotech.com
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer"><i class="ri-facebook-fill"></i></div>
+                    <div class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer"><i class="ri-instagram-line"></i></div>
+                    <div class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer"><i class="ri-linkedin-fill"></i></div>
+                    <div class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer"><i class="ri-youtube-fill"></i></div>
+                    <div class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer"><i class="ri-twitter-x-line"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full flex relative justify-center mt-3 items-center fade-in-up" style="transition-delay: 0.2s">
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
+                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
+                <ul class="flex gap-6 roboto text-[#061E42] font-bold">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="index.html">Home</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="about.html">About Us</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="services.html">Services</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

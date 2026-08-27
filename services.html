@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Kyle Infotech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto { font-family: 'Roboto', sans-serif; }
+        .lato { font-family: 'Lato', sans-serif; }
+        .App_Tiltle { font-family: 'App_Title', sans-serif; font-weight: 900; }
+        
+        
+        .text-glow {
+            background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 5s infinite linear;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 5s infinite linear;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Premium Button */
+        .btn-super-glow {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: linear-gradient(90deg, #28BBE9, #40C49B, #28BBE9);
+            background-size: 200% auto;
+            color: white !important;
+            font-weight: 800;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.4s ease;
+            z-index: 1;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        .btn-super-glow:hover {
+            background-position: right center;
+            transform: translateY(-4px);
+        }
+        .btn-super-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-45deg) translateX(-150%);
+            transition: transform 0.7s ease;
+            z-index: -1;
+        }
+        .btn-super-glow:hover::before {
+            transform: skewX(-45deg) translateX(150%);
+        }
+        .btn-super-glow i {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+        .btn-super-glow:hover i {
+            transform: translateX(6px);
+        }
+
+        .animated-bg { background-size: 150% 150%; animation: bgMove 4s ease-in-out infinite; }
+        @keyframes bgMove { 0%,100%{background-position:center top} 50%{background-position:center bottom} }
+        body { overflow-x: hidden; }
+        .fade-in-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; }
+        .fade-in-up.active { opacity:1; transform:translateY(0); }
+        .fade-in-left { opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+        .fade-in-left.active { opacity:1; transform:translateX(0); }
+        .fade-in-right { opacity:0; transform:translateX(50px); transition:opacity 1s ease,transform 1s ease; }
+        .fade-in-right.active { opacity:1; transform:translateX(0); }
+        .scale-in { opacity:0; transform:scale(0.9); transition:opacity 0.6s ease,transform 0.6s ease; }
+        .scale-in.active { opacity:1; transform:scale(1); }
+    
+    .btn-cyan-glow {
+        background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+        background-size: 200% auto;
+        animation: gradientShift 5s infinite linear;
+        border: none;
+    }
+    .btn-cyan-glow:hover {
+        }
+
+</style>
+</head>
+<body class="bg-[#f8fbfd]">
+
+<!-- ===== HEADER ===== -->
+<div class="w-full bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[400px] relative" style="min-height:45vh;">
+    <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[400px]"></div>
+<!-- Top Bar -->
+        <div class="relative w-full flex justify-center ">
+            <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
+                <!-- Location -->
+                <div class="flex gap-2 text-white items-center">
+                    <i class="ri-map-pin-2-fill text-white"></i>
+                    <p class="text-[14px] roboto">AA 195, AA Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064,
+                        India</p>
+                </div>
+                <!-- Contact Info -->
+                <div class="flex gap-4 items-center">
+                    <div class="flex text-white text-[14px] gap-2 roboto items-center">
+                        <i class="ri-phone-fill text-white text-[20px]"></i>
+                        +918240445884
+                    </div>
+                    <div class="flex text-white items-center gap-2 text-[14px] roboto">
+                        <i class="ri-mail-fill text-[20px]"></i>
+                        info@kyleinfotech.com
+                    </div>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="flex gap-2 items-center">
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-facebook-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-instagram-line"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-linkedin-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-twitter-x-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="w-full flex relative justify-center mt-3 items-center " >
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
+                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
+                <ul class="flex gap-6 roboto text-[#061E42] font-bold">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="index.html">Home</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="about.html">About Us</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="services.html">Services</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="relative flex flex-col items-center justify-center text-center mt-14 pb-20 z-10 w-full">
+        <h1 class="text-3xl md:text-5xl font-black text-white lato mb-6">
+            <span class="text-glow App_Tiltle">Our Services</span>
+        </h1>
+        <div class="flex items-center gap-3 text-white/70 text-[15px] roboto bg-white/5 px-6 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+            <a href="index.html" class="hover:text-[#28BBE9] transition-colors font-medium">Home</a>
+            <i class="ri-arrow-right-s-line text-white/40"></i>
+            <span class="text-[#28BBE9] font-bold">Services</span>
+        </div>
+    </div>
+</div>
+
+<!-- Logo Grid -->
+<section class="py-16 bg-[#f8fbfd] border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-[#205872] text-glow App_Tiltle mb-12 py-2">Technologies We Work On</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">React</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">Angular</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">Node.js</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3" style="filter: invert(0.2) sepia(1) saturate(3) hue-rotate(180deg);">
+                <span class="font-bold text-sm text-gray-800">WordPress</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <i class="ri-shopping-cart-line text-4xl text-[#95BF47] group-hover:scale-110 transition-transform mb-2"></i>
+                <span class="font-bold text-sm text-gray-800">Shopify</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">PHP</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">Tailwind CSS</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">Python</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">AWS</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">Figma</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <i class="ri-google-fill text-4xl text-[#EA4335] group-hover:scale-110 transition-transform mb-2"></i>
+                <span class="font-bold text-sm text-gray-800">Google Ads</span>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded p-6 flex flex-col items-center justify-center h-32 shadow-sm hover:shadow-md hover:border-[#28BBE9]/50 transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-12 h-12 group-hover:scale-110 transition-transform mb-3">
+                <span class="font-bold text-sm text-gray-800">MySQL</span>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Dynamic Services Vertical Tabs -->
+<style>
+    .service-tab-btn.active {
+        color: #28BBE9 !important;
+    }
+    .service-tab-btn.active .tab-line {
+        width: 100%;
+        background-color: #28BBE9;
+        opacity: 1;
+    }
+    .service-tab-btn.active .tab-arrow {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .service-pane {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    .service-pane.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<style>
+    .service-tab-btn {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 8px;
+    }
+    .service-tab-btn::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 4px;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        border-radius: 4px 0 0 4px;
+    }
+    .service-tab-btn.active {
+        background-color: #f0f9fc;
+    }
+    .service-tab-btn.active::before {
+        background-color: #28BBE9;
+    }
+    .service-tab-btn.active .tab-title {
+        color: #061E42;
+        font-weight: 800;
+    }
+    .service-tab-btn.active .tab-icon {
+        color: #28BBE9;
+        transform: rotate(-90deg);
+    }
+    .service-pane {
+        display: none;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .service-pane.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<section class="py-24 bg-[#FAFCFF]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-[#205872] text-glow App_Tiltle mb-6 py-2">Development Services</h2>
+            <p class="text-gray-500 text-[17px] max-w-3xl mx-auto roboto leading-relaxed">Bespoke Mobile Apps or Web Apps. eCommerce or Portals. Product Development or Software Design Services. Dedicated Hiring or a Fixed Quote. One-Time or Ongoing. We Offer Everything To Cater to the Unique Needs of Our Clients.</p>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+            
+            <!-- Left Sidebar Navigation -->
+            <div class="lg:w-[320px] shrink-0 flex flex-col w-full">
+                
+                <button class="service-tab-btn active text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-ai" onclick="switchServiceTab('tab-ai')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">AI/ML/GenAI</span>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="service-tab-btn text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-web" onclick="switchServiceTab('tab-web')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">Web Engineering</span>
+                        </div>
+                    </div>
+                </button>
+                
+                <button class="service-tab-btn text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-mobile" onclick="switchServiceTab('tab-mobile')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">Mobile App Development</span>
+                        </div>
+                    </div>
+                </button>
+                
+                <button class="service-tab-btn text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-digital" onclick="switchServiceTab('tab-digital')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">Digital Marketing & SEO</span>
+                        </div>
+                    </div>
+                </button>
+                
+                <button class="service-tab-btn text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-uiux" onclick="switchServiceTab('tab-uiux')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">UI/UX Design</span>
+                        </div>
+                    </div>
+                </button>
+                
+                <button class="service-tab-btn text-left py-4 px-6 transition-all group hover:bg-gray-50" data-target="tab-emerging" onclick="switchServiceTab('tab-emerging')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <i class="ri-arrow-down-s-line text-gray-400 tab-icon transition-transform duration-300"></i> 
+                            <span class="tab-title text-gray-600 font-medium text-lg transition-colors group-hover:text-[#061E42]">Emerging Tech</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Right Content Panels -->
+            <div class="flex-1 w-full bg-white p-8 md:p-12 lg:p-14 rounded-2xl shadow-xl shadow-[#061E42]/5 border border-gray-100 relative overflow-hidden">
+                
+                <!-- Decorative element -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#28BBE9]/10 to-transparent rounded-bl-full pointer-events-none"></div>
+
+                <!-- Pane: AI/ML/GenAI -->
+                <div class="service-pane active" id="tab-ai">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-brain-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">AI/ML/GenAI</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">AI-Driven Analytics</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Empower your business with advanced analytics powered by AI. Make data-driven decisions with precision, enhancing your strategic capabilities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Machine Learning Solutions</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Automate and improve processes with our machine learning solutions. Experience the transformative power of systems that learn and adapt to add value continuously.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Generative AI Applications</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Push the boundaries of innovation with our generative AI tools. From content creation to problem-solving, explore new possibilities and solutions for your business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="ai-integration.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Innovate with AI and Machine Learning <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- Pane: Web Engineering -->
+                <div class="service-pane" id="tab-web">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-window-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">Web Engineering</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Custom Web Applications</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Scalable, secure, and robust web applications designed tailored perfectly to your complex business requirements using React, Angular, and Node.js.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Enterprise Architecture</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Microservices architecture setup, cloud deployment, and complex database structuring for massive data handling.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="web-development.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Elevate Your Business with Web Solutions <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- Pane: Mobile -->
+                <div class="service-pane" id="tab-mobile">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-smartphone-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">Mobile App Development</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Native iOS & Android</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">High performance, natively compiled applications for maximum hardware integration and speed tailored to both platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="mobile-app-development.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Build Your App Today <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- Pane: Digital -->
+                <div class="service-pane" id="tab-digital">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-line-chart-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">Digital Marketing & SEO</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Global & Local SEO</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Dominate search rankings and drive organic traffic that converts. We utilize the latest algorithm-friendly practices to guarantee visibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="digital-marketing.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Grow Your Traffic <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- Pane: UI/UX -->
+                <div class="service-pane" id="tab-uiux">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-palette-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">UI/UX Design</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">User-Centric Experiences</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Wireframing, prototyping, and stunning high-fidelity UI design that keeps users engaged and dramatically boosts conversions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Redesign Your Brand <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+                <!-- Pane: Emerging -->
+                <div class="service-pane" id="tab-emerging">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20">
+                            <i class="ri-rocket-line"></i>
+                        </div>
+                        <h3 class="text-3xl font-black text-[#061E42] lato tracking-tight">Emerging Tech</h3>
+                    </div>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex gap-4 items-start">
+                            <div class="mt-1 bg-[#E8F8F5] text-[#40C49B] rounded-full p-1 border border-[#40C49B]/30 shrink-0">
+                                <i class="ri-check-line text-xl leading-none"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-[#061E42] mb-2">Web3 & Blockchain</h4>
+                                <p class="text-gray-500 roboto text-[16px] leading-relaxed">Smart contracts, dApps, and cutting-edge decentralized infrastructure designed for the modern web.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                        Explore The Future <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function switchServiceTab(targetId) {
+        // Reset all buttons
+        const btns = document.querySelectorAll('.service-tab-btn');
+        btns.forEach(btn => {
+            btn.classList.remove('active');
+            const title = btn.querySelector('.tab-title');
+            if(title) {
+                title.classList.remove('text-[#061E42]', 'font-extrabold');
+                title.classList.add('text-gray-600', 'font-medium');
+            }
+        });
+
+        // Activate clicked button
+        const activeBtn = document.querySelector(`.service-tab-btn[data-target="${targetId}"]`);
+        if(activeBtn) {
+            activeBtn.classList.add('active');
+            const title = activeBtn.querySelector('.tab-title');
+            if(title) {
+                title.classList.remove('text-gray-600', 'font-medium');
+                title.classList.add('text-[#061E42]', 'font-extrabold');
+            }
+        }
+
+        // Hide all panes
+        const panes = document.querySelectorAll('.service-pane');
+        panes.forEach(pane => pane.classList.remove('active'));
+
+        // Show target pane
+        setTimeout(() => {
+            const targetPane = document.getElementById(targetId);
+            if(targetPane) {
+                targetPane.classList.add('active');
+            }
+        }, 50); // slight delay to trigger animation
+    }
+</script>
+
+<script>
+    function switchServiceTab(targetId) {
+        // Reset all buttons
+        const btns = document.querySelectorAll('.service-tab-btn');
+        btns.forEach(btn => {
+            btn.classList.remove('active');
+            const line = btn.querySelector('.tab-line');
+            const arrow = btn.querySelector('.tab-arrow');
+            if(line) { line.style.width = '0'; line.style.opacity = '0'; }
+            if(arrow) { arrow.style.opacity = '0'; arrow.style.transform = 'translateX(-10px)'; }
+        });
+
+        // Activate clicked button
+        const activeBtn = document.querySelector(`.service-tab-btn[data-target="${targetId}"]`);
+        if(activeBtn) {
+            activeBtn.classList.add('active');
+            const line = activeBtn.querySelector('.tab-line');
+            const arrow = activeBtn.querySelector('.tab-arrow');
+            if(line) { line.style.width = '100%'; line.style.opacity = '1'; line.style.backgroundColor = '#28BBE9'; }
+            if(arrow) { arrow.style.opacity = '1'; arrow.style.transform = 'translateX(0)'; }
+        }
+
+        // Hide all panes
+        const panes = document.querySelectorAll('.service-pane');
+        panes.forEach(pane => pane.classList.remove('active'));
+
+        // Show target pane
+        const targetPane = document.getElementById(targetId);
+        if(targetPane) {
+            targetPane.classList.add('active');
+        }
+    }
+</script>
+
+
+<!-- Credentials Stats Grid -->
+<section class="py-24 bg-[#f4f9fc] relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="mb-16 max-w-5xl">
+            <div class="flex items-center gap-2 mb-6">
+                <div class="flex gap-0.5">
+                    <div class="w-2.5 h-8 bg-orange-500 transform -skew-x-[20deg]"></div>
+                    <div class="w-2.5 h-8 bg-[#40C49B] transform -skew-x-[20deg]"></div>
+                    <div class="w-2.5 h-8 bg-[#28BBE9] transform -skew-x-[20deg]"></div>
+                </div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#205872] text-glow App_Tiltle mb-6 py-2 leading-tight">We Invite You To Experience Kyle Infotech Service</h2>
+            <p class="text-lg text-gray-600 roboto leading-relaxed max-w-4xl">Kyle Infotech Has 12+ Years of Expertise in Delivering High-End Digital Solutions, Training, and Managing Offshore Developers. Our Team Members Are Agile-Trained, English-Speaking, and Vetted Using Our Proprietary Assessment Platform.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-200 mb-12 bg-white shadow-xl shadow-[#061E42]/5 rounded-xl overflow-hidden">
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-line-chart-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">Public Listed</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">BSE</span>
+                </div>
+            </div>
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-scissors-cut-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">2012</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">Established</span>
+                </div>
+            </div>
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-team-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">150+</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">Skilled Employees</span>
+                </div>
+            </div>
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-settings-4-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">50+</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">Technologies</span>
+                </div>
+            </div>
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-global-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">250+</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">Clients Worldwide</span>
+                </div>
+            </div>
+            <!-- Cell -->
+            <div class="border-b border-r border-gray-200 p-10 flex items-center gap-6 hover:bg-gray-50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:scale-110 transition-transform">
+                    <i class="ri-building-2-line"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black text-[#061E42] lato tracking-tight">02</h4>
+                    <span class="text-sm text-gray-500 font-bold uppercase tracking-widest mt-1 block">Development Centers</span>
+                </div>
+            </div>
+        </div>
+        
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-4 px-10 rounded-lg transition-all text-[16px] hover:-translate-y-0.5 w-full sm:w-auto">
+            Let's Talk Growth! <i class="ri-arrow-right-line"></i>
+        </a>
+    </div>
+</section>
+<!-- Reviews Section -->
+<section class="py-24 bg-white relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-14 items-center lg:items-start">
+        
+        <!-- Left Side: Title & Badges -->
+        <div class="lg:w-[35%] flex flex-col items-start w-full">
+            <!-- Stars -->
+            <div class="flex items-center gap-2 mb-6">
+                <span class="text-[#28BBE9] text-3xl font-light leading-none">(</span>
+                <div class="flex text-yellow-400 text-2xl gap-1">
+                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                </div>
+                <span class="text-[#28BBE9] text-3xl font-light leading-none">)</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#061E42] lato leading-tight mb-6">Success Stories That Matter</h2>
+            <div class="w-20 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] rounded-full mb-8"></div>
+            <p class="text-gray-500 roboto text-[17px] mb-12 leading-relaxed">Hear from businesses like yours about how we've helped them grow, maintain quality, and manage complex digital projects efficiently.</p>
+            
+            <!-- Badges -->
+            <div class="flex w-full mb-12">
+                <div class="text-center flex flex-col items-center justify-center px-10 py-4 bg-[#f8fbfd] rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-1 text-2xl mb-2 tracking-tighter">
+                        <span class="text-blue-500 font-bold">G</span><span class="text-red-500 font-bold">o</span><span class="text-yellow-500 font-bold">o</span><span class="text-blue-500 font-bold">g</span><span class="text-green-500 font-bold">l</span><span class="text-red-500 font-bold">e</span>
+                    </div>
+                    <div class="flex text-yellow-400 text-[12px] mb-1 gap-0.5">
+                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                    </div>
+                    <span class="text-[12px] font-bold text-gray-600 uppercase tracking-wide">5 Star Rating</span>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto">
+                Join Our Success Stories <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <!-- Right Side: Review Cards Grid -->
+        <div class="lg:w-[65%] grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative">
+            
+            <!-- Card 1 -->
+            <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-[#28BBE9]/10 transition-all duration-300 group hover:-translate-y-1">
+                <i class="ri-double-quotes-l text-5xl text-[#28BBE9] opacity-20 group-hover:opacity-100 transition-opacity mb-4 block leading-none"></i>
+                <p class="text-gray-600 roboto text-[16px] leading-relaxed italic mb-8 min-h-[80px]">"The workflow between our team and theirs was absolutely excellent. They delivered exactly what we needed."</p>
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-50">
+                    <img src="https://i.pravatar.cc/100?img=1" class="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-white" alt="Avatar">
+                    <div>
+                        <h5 class="font-bold text-[#061E42] text-[15px]">Emily Nyaz</h5>
+                        <span class="text-xs text-gray-400 uppercase tracking-wide font-medium">VP of Operations</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-[#28BBE9]/10 transition-all duration-300 group hover:-translate-y-1">
+                <i class="ri-double-quotes-l text-5xl text-[#28BBE9] opacity-20 group-hover:opacity-100 transition-opacity mb-4 block leading-none"></i>
+                <p class="text-gray-600 roboto text-[16px] leading-relaxed italic mb-8 min-h-[80px]">"I am glad I found Kyle Infotech and I credit them for a lot of the digital success my company has had."</p>
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-50">
+                    <img src="https://i.pravatar.cc/100?img=11" class="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-white" alt="Avatar">
+                    <div>
+                        <h5 class="font-bold text-[#061E42] text-[15px]">George Levy</h5>
+                        <span class="text-xs text-gray-400 uppercase tracking-wide font-medium">Chief Learning Officer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-[#28BBE9]/10 transition-all duration-300 group hover:-translate-y-1">
+                <i class="ri-double-quotes-l text-5xl text-[#28BBE9] opacity-20 group-hover:opacity-100 transition-opacity mb-4 block leading-none"></i>
+                <p class="text-gray-600 roboto text-[16px] leading-relaxed italic mb-8 min-h-[80px]">"They invest deeply in the success of their clients which makes them incredibly flexible in accommodating needs."</p>
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-50">
+                    <img src="https://i.pravatar.cc/100?img=5" class="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-white" alt="Avatar">
+                    <div>
+                        <h5 class="font-bold text-[#061E42] text-[15px]">Judy Shapiro</h5>
+                        <span class="text-xs text-gray-400 uppercase tracking-wide font-medium">CEO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-[#28BBE9]/10 transition-all duration-300 group hover:-translate-y-1">
+                <i class="ri-double-quotes-l text-5xl text-[#28BBE9] opacity-20 group-hover:opacity-100 transition-opacity mb-4 block leading-none"></i>
+                <p class="text-gray-600 roboto text-[16px] leading-relaxed italic mb-8 min-h-[80px]">"They are always willing to help, proactively checking in even after the core project was successfully launched."</p>
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-50">
+                    <img src="https://i.pravatar.cc/100?img=8" class="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-white" alt="Avatar">
+                    <div>
+                        <h5 class="font-bold text-[#061E42] text-[15px]">Charles Osborn</h5>
+                        <span class="text-xs text-gray-400 uppercase tracking-wide font-medium">Head of Product</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="relative  bg-cover bg-center min-h-[120vh] text-white"
+            style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('assets/images/footerbg.jpg');">
+
+            <div class="absolute inset-0 bg-black/70"></div>
+
+            <div class="relative z-10 w-full mx-auto flex flex-col items-center justify-center h-full space-y-12">
+
+                <div class="w-[90%] flex justify-center">
+                    <div class="text-center mt-10">
+                        <h2 class="text-5xl font-bold mb-8 tracking-wider pt-10 hoverable-text">INSTANT CONTACT</h2>
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+                            <input type="text" placeholder="Name"
+                                class="w-[330px] bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Phone No."
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="email" placeholder="Email"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+
+                            <input type="text" placeholder="Service You Choose"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                        </form>
+
+                        <button
+                            class="mt-8 text-white w-[230px] bg-gradient-to-r from-[#3ABDFD] to-[#38E8AF] text-[30px] font-semibold px-10 py-2 rounded-full hover:opacity-90 transition-all hoverable-button">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+
+                <img src="assets/images/footereclip.png" class="absolute z-[-11] scale-x-[-1] left-0" />
+                <div
+                    class=" animated-bg mouse-glow bg-[radial-gradient(circle_at_center,_#00332F,_#000000,_#006345)] h-[120vh] rounded-tl-[700px] py-12 px-10 md:px-20 w-full border-t-[2px] border-l-[2px] border-[#6FACAB]">
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+                        <div class="mt-[270px]">
+                            <div class="flex items-center px-3 ml-[-20px] mb-5 bg-white w-[240px] py-2 rounded-[10px]">
+                                <img src="assets/images/logo.png" />
+                            </div>
+                            <p class="text-gray-300 leading-relaxed lato mt-10 text-[16px] ml-[-10px] hoverable-text">
+                                Kyle Infotech is a forward-thinking IT company dedicated to delivering smart, scalable,
+                                and
+                                reliable technology solutions for businesses of all sizes.
+                            </p>
+                        </div>
+
+                        <div class="mt-[150px] ml-10">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Quick Links</h3>
+                            <ul class="space-y-2 text-gray-300 text-[20px] lato">
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="index.html" class="hover:text-white transition">Home</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="about.html" class="hover:text-white transition">About us</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="services.html" class="hover:text-white transition">Our Services</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Projects</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="contact.html" class="hover:text-white transition">Contact</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-[70px]">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Contact Info</h3>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-map-pin-line text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">32 Loren Rd, Lorem BR2 88A, United Kingdom</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-mail-line text-[#72F5CD] text-[20px] "></i>
+                                <p class="text-gray-300 text-[20px]">loren@testmail.com</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-phone-line  text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">+918240445884</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold mb-4 text-[28px] mt-5 lato hoverable-text">Working Hours</h3>
+                            <p class="text-gray-300 text-[18px] hoverable-text">Monday to Friday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                            <p class="text-gray-300 text-[18px] mt-2 hoverable-text">Saturday to Sunday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex justify-end h-[33vh] mt-1">
+                        <div
+                            class="w-[70%] flex justify-end items-center border-t-[1px] border-[#8E8E8E] mr-[-80px] rounded-tl-[1000px]">
+                            <div class="flex gap-2 items-center mt-[-210px] mr-[130px]">
+                                <div
+                                    class="flex justify-center bg-gradient-to-r from-[#25ABD4] to-[#40C49B] text-white items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-facebook-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-instagram-line text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-linkedin-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-youtube-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-twitter-x-line text-[20px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+<script>
+    function createClock(id, offset) {
+        const clock = document.getElementById(id);
+        if(!clock) return;
+        const center = 30;
+        const radius = 22;
+
+        for (let i = 1; i <= 12; i++) {
+            const num = document.createElement("div");
+            num.textContent = i;
+            num.className = "absolute text-[10px] text-gray-300 font-semibold";
+            const angle = (i / 12) * 2 * Math.PI;
+            const x = center + radius * Math.sin(angle);
+            const y = center - radius * Math.cos(angle);
+            num.style.left = `${x}px`;
+            num.style.top = `${y}px`;
+            num.style.transform = "translate(-50%, -50%)";
+            clock.appendChild(num);
+        }
+
+        const hourHand = document.createElement("div");
+        hourHand.className = "absolute bg-gray-400 rounded-full origin-bottom";
+        hourHand.style.width = "2px";
+        hourHand.style.height = "12px";
+        hourHand.style.left = "29px";
+        hourHand.style.top = "18px";
+        clock.appendChild(hourHand);
+
+        const minuteHand = document.createElement("div");
+        minuteHand.className = "absolute bg-white rounded-full origin-bottom";
+        minuteHand.style.width = "2px";
+        minuteHand.style.height = "18px";
+        minuteHand.style.left = "29px";
+        minuteHand.style.top = "12px";
+        clock.appendChild(minuteHand);
+
+        const secondHand = document.createElement("div");
+        secondHand.className = "absolute bg-red-400 rounded-full origin-bottom";
+        secondHand.style.width = "1px";
+        secondHand.style.height = "20px";
+        secondHand.style.left = "29.5px";
+        secondHand.style.top = "10px";
+        clock.appendChild(secondHand);
+
+        const centerDot = document.createElement("div");
+        centerDot.className = "absolute bg-white rounded-full";
+        centerDot.style.width = "6px";
+        centerDot.style.height = "6px";
+        centerDot.style.left = "27px";
+        centerDot.style.top = "27px";
+        clock.appendChild(centerDot);
+
+        function updateClock() {
+            const now = new Date();
+            const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const targetTime = new Date(utc + 3600000 * offset);
+
+            const hours = targetTime.getHours();
+            const minutes = targetTime.getMinutes();
+            const seconds = targetTime.getSeconds();
+
+            const hourAngle = (hours % 12) * 30 + minutes * 0.5;
+            const minuteAngle = minutes * 6 + seconds * 0.1;
+            const secondAngle = seconds * 6;
+
+            hourHand.style.transform = `rotate(${hourAngle}deg)`;
+            minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
+            secondHand.style.transform = `rotate(${secondAngle}deg)`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        createClock("clock-ny", -4);
+        createClock("clock-aus", 10);
+        createClock("clock-uk", 1);
+    });
+</script>
+</body>
+</html>

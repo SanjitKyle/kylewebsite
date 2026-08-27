@@ -396,14 +396,11 @@
             data-delay="100">
             <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
                 <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
-                <ul class="flex gap-4 roboto text-[#061E42] font-medium">
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Home</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Social Media</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Website Design</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Graphic Design</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">SEO</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Local SEO</li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer">Google Ads</li>
+                <ul class="flex gap-6 roboto text-[#061E42] font-bold">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="index.html">Home</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="about.html">About Us</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="services.html">Services</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -1381,15 +1378,15 @@
                             <ul class="space-y-2 text-gray-300 text-[20px] lato">
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
-                                    <a href="#" class="hover:text-white transition">Home</a>
+                                    <a href="index.html" class="hover:text-white transition">Home</a>
                                 </li>
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
-                                    <a href="#" class="hover:text-white transition">About us</a>
+                                    <a href="about.html" class="hover:text-white transition">About us</a>
                                 </li>
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
-                                    <a href="#" class="hover:text-white transition">Our Services</a>
+                                    <a href="services.html" class="hover:text-white transition">Our Services</a>
                                 </li>
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
@@ -1397,7 +1394,7 @@
                                 </li>
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
-                                    <a href="#" class="hover:text-white transition">Contact</a>
+                                    <a href="contact.html" class="hover:text-white transition">Contact</a>
                                 </li>
                                 <li class="flex items-center gap-2 hoverable-link">
                                     <span class="text-[#72F5CD]">✓</span>
@@ -2056,6 +2053,126 @@
             },
         });
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Global Custom Cursor -->
+<div id="global-custom-cursor" class="cursor-normal" style="position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 999999; display: none; transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;"></div>
+<style>
+    /* Hide system cursor globally */
+    @media (hover: hover) and (pointer: fine) {
+        * {
+            cursor: none !important;
+        }
+    }
+    
+    /* Normal state: small black dot */
+    .cursor-normal {
+        width: 12px !important;
+        height: 12px !important;
+        background-color: black !important;
+        mix-blend-mode: normal !important;
+    }
+    
+    /* Expanded state: large inverted lens */
+    .cursor-expanded {
+        width: 80px !important;
+        height: 80px !important;
+        background-color: white !important;
+        mix-blend-mode: difference !important;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const globalCursor = document.getElementById('global-custom-cursor');
+        if(!globalCursor) return;
+        
+        // Hide old cursors
+        const oldCursor = document.getElementById('custom-cursor');
+        const oldTrail = document.getElementById('cursor-trail');
+        if(oldCursor) oldCursor.style.display = 'none';
+        if(oldTrail) oldTrail.style.display = 'none';
+
+        let cursorX = window.innerWidth / 2;
+        let cursorY = window.innerHeight / 2;
+        let mouseX = cursorX;
+        let mouseY = cursorY;
+        let isMoving = false;
+        let currentSize = 12; // Start with normal size
+        let targetSize = 12;
+        
+        document.addEventListener('mousemove', (e) => {
+            if(!isMoving) {
+                globalCursor.style.display = 'block';
+                isMoving = true;
+            }
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateGlobalCursor() {
+            const speed = 0.2;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+            
+            // Smoothly animate the offset size so the center stays perfectly aligned during transition
+            currentSize += (targetSize - currentSize) * 0.2;
+            const offset = currentSize / 2;
+            
+            globalCursor.style.transform = `translate(${cursorX - offset}px, ${cursorY - offset}px)`;
+            requestAnimationFrame(animateGlobalCursor);
+        }
+        animateGlobalCursor();
+        
+        const targetElements = 'h1, h2, h3, h4, h5, h6, p, img, a, button, .swiper-slide, .hoverable-text, .hoverable-link, .group, .card';
+        
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(targetElements)) {
+                globalCursor.classList.remove('cursor-normal');
+                globalCursor.classList.add('cursor-expanded');
+                targetSize = 80;
+            }
+        });
+        
+        document.addEventListener('mouseout', (e) => {
+            const target = e.target.closest(targetElements);
+            if (target) {
+                setTimeout(() => {
+                    if (!document.querySelector(':hover')?.closest(targetElements)) {
+                        globalCursor.classList.remove('cursor-expanded');
+                        globalCursor.classList.add('cursor-normal');
+                        targetSize = 12;
+                    }
+                }, 10);
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
+
+

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development - Kyle Infotech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto { font-family: 'Roboto', sans-serif; }
+        .lato { font-family: 'Lato', sans-serif; }
+        .App_Tiltle { font-family: 'App_Title', sans-serif; font-weight: 900; }
+        
+        
+        .text-glow {
+            background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 5s infinite linear;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 5s infinite linear;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Premium Button */
+        .btn-super-glow {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: linear-gradient(90deg, #28BBE9, #40C49B, #28BBE9);
+            background-size: 200% auto;
+            color: white !important;
+            font-weight: 800;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.4s ease;
+            z-index: 1;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        .btn-super-glow:hover {
+            background-position: right center;
+            transform: translateY(-4px);
+        }
+        .btn-super-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-45deg) translateX(-150%);
+            transition: transform 0.7s ease;
+            z-index: -1;
+        }
+        .btn-super-glow:hover::before {
+            transform: skewX(-45deg) translateX(150%);
+        }
+        .btn-super-glow i {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+        .btn-super-glow:hover i {
+            transform: translateX(6px);
+        }
+
+        .animated-bg { background-size: 150% 150%; animation: bgMove 4s ease-in-out infinite; }
+        @keyframes bgMove { 0%,100%{background-position:center top} 50%{background-position:center bottom} }
+        body { overflow-x: hidden; }
+        .fade-in-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; }
+        .fade-in-up.active { opacity:1; transform:translateY(0); }
+        .fade-in-left { opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+        .fade-in-left.active { opacity:1; transform:translateX(0); }
+        .fade-in-right { opacity:0; transform:translateX(50px); transition:opacity 1s ease,transform 1s ease; }
+        .fade-in-right.active { opacity:1; transform:translateX(0); }
+        .scale-in { opacity:0; transform:scale(0.9); transition:opacity 0.6s ease,transform 0.6s ease; }
+        .scale-in.active { opacity:1; transform:scale(1); }
+    
+    .btn-cyan-glow {
+        background: linear-gradient(90deg, #28bbe9, #205872, #28bbe9);
+        background-size: 200% auto;
+        animation: gradientShift 5s infinite linear;
+        border: none;
+    }
+    .btn-cyan-glow:hover {
+        }
+
+</style>
+</head>
+<body class="bg-[#f8fbfd]">
+
+<!-- ===== HEADER ===== -->
+<div class="w-full bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[400px] relative" style="min-height:45vh;">
+    <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[400px]"></div>
+<!-- Top Bar -->
+        <div class="relative w-full flex justify-center ">
+            <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
+                <!-- Location -->
+                <div class="flex gap-2 text-white items-center">
+                    <i class="ri-map-pin-2-fill text-white"></i>
+                    <p class="text-[14px] roboto">AA 195, AA Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064,
+                        India</p>
+                </div>
+                <!-- Contact Info -->
+                <div class="flex gap-4 items-center">
+                    <div class="flex text-white text-[14px] gap-2 roboto items-center">
+                        <i class="ri-phone-fill text-white text-[20px]"></i>
+                        +918240445884
+                    </div>
+                    <div class="flex text-white items-center gap-2 text-[14px] roboto">
+                        <i class="ri-mail-fill text-[20px]"></i>
+                        info@kyleinfotech.com
+                    </div>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="flex gap-2 items-center">
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-facebook-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-instagram-line"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-linkedin-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                    <div
+                        class="flex justify-center text-white items-center rounded-full h-8 w-8 border-[1px] border-white hover:bg-white hover:text-[#000A19] transition-all duration-300 cursor-pointer">
+                        <i class="ri-twitter-x-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="w-full flex relative justify-center mt-3 items-center " >
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4 shadow-xl">
+                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
+                <ul class="flex gap-6 roboto text-[#061E42] font-bold">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="index.html">Home</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="about.html">About Us</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="services.html">Services</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="relative flex flex-col items-center justify-center text-center mt-14 pb-20 z-10 w-full">
+        <h1 class="text-3xl md:text-5xl font-black text-white lato mb-6">
+            <span class="text-glow App_Tiltle">Web Development</span>
+        </h1>
+        <div class="flex items-center gap-3 text-white/70 text-[15px] roboto bg-white/5 px-6 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+            <a href="index.html" class="hover:text-[#28BBE9] transition-colors font-medium">Home</a>
+            <i class="ri-arrow-right-s-line text-white/40"></i>
+            <span class="text-[#28BBE9] font-bold">Services</span>
+        </div>
+    </div>
+</div>
+
+
+    <style>
+        .challenge-card { border-top-width: 4px; transition: all 0.4s ease; }
+        .challenge-card:hover { transform: translateY(-5px); }
+        .challenge-card.blue { border-top-color: #28BBE9; }
+        .challenge-card.green { border-top-color: #40C49B; }
+        .challenge-card.orange { border-top-color: #ff6b00; }
+        .challenge-card.purple { border-top-color: #8B5CF6; }
+        
+        .service-box:hover .hover-plus { color: #ff6b00; transform: rotate(90deg); }
+        .hover-plus { transition: all 0.3s ease; }
+
+        .step-circle {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: #3B5998; color: white; display: flex;
+            align-items: center; justify-content: center; font-weight: bold;
+            position: relative; z-index: 10;
+        }
+        
+        .roadmap-container { position: relative; }
+        .roadmap-line-bg {
+            position: absolute; top: 20px; left: 5%; right: 5%; height: 2px;
+            border-top: 2px dashed #cbd5e1; z-index: 0;
+        }
+        @media(max-width: 1024px) { .roadmap-line-bg { display: none; } }
+    </style>
+    
+    <section class="py-24 bg-[#f4f9fc]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#205872] text-glow App_Tiltle mb-6 py-2">Web Development Challenges Shouldn't Slow Your Growth</h2>
+                <p class="text-gray-600 text-lg max-w-4xl mx-auto roboto">Kyle Infotech helps you modernize your web applications to improve performance, strengthen security, and control costs at scale.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm border border-gray-100 challenge-card blue flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-[#28BBE9]/5 group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+                    <div class="absolute right-6 top-6 w-14 h-14 rounded-xl bg-[#28BBE9]/10 text-[#28BBE9] flex items-center justify-center text-3xl group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ri-error-warning-line"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-[11px] font-black text-[#28BBE9] uppercase tracking-widest mb-5 block bg-[#28BBE9]/10 w-max px-4 py-1.5 rounded-full">Challenge #1</span>
+                        <h3 class="text-2xl lg:text-3xl font-black text-[#061E42] mb-6 lato leading-tight pr-14">Struggling with Legacy web applications?</h3>
+                        <div class="bg-[#f8fbfd] p-5 rounded-xl mb-8 border-l-4 border-[#28BBE9]">
+                            <p class="font-bold text-[#061E42] text-[13px] mb-2 uppercase tracking-widest opacity-80">Outcome You Need:</p>
+                            <p class="text-gray-600 text-[15px] leading-relaxed">A scalable, cost-efficient ecosystem with clear visibility into performance, speed, and structural integrity.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-[#ff6b00] font-bold text-[15px] inline-flex items-center gap-1.5 hover:gap-3 transition-all relative z-10">Know how we can help <i class="ri-arrow-right-line"></i></a>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm border border-gray-100 challenge-card green flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-[#40C49B]/5 group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+                    <div class="absolute right-6 top-6 w-14 h-14 rounded-xl bg-[#40C49B]/10 text-[#40C49B] flex items-center justify-center text-3xl group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ri-speed-up-line"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-[11px] font-black text-[#40C49B] uppercase tracking-widest mb-5 block bg-[#40C49B]/10 w-max px-4 py-1.5 rounded-full">Challenge #2</span>
+                        <h3 class="text-2xl lg:text-3xl font-black text-[#061E42] mb-6 lato leading-tight pr-14">Poor frontend architecture Execution?</h3>
+                        <div class="bg-[#f4fbf9] p-5 rounded-xl mb-8 border-l-4 border-[#40C49B]">
+                            <p class="font-bold text-[#061E42] text-[13px] mb-2 uppercase tracking-widest opacity-80">Outcome You Need:</p>
+                            <p class="text-gray-600 text-[15px] leading-relaxed">Modernized applications and workflows that reduce technical debt and aggressively support business growth.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-[#ff6b00] font-bold text-[15px] inline-flex items-center gap-1.5 hover:gap-3 transition-all relative z-10">Know how we can help <i class="ri-arrow-right-line"></i></a>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm border border-gray-100 challenge-card orange flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-[#ff6b00]/5 group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+                    <div class="absolute right-6 top-6 w-14 h-14 rounded-xl bg-[#ff6b00]/10 text-[#ff6b00] flex items-center justify-center text-3xl group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-[11px] font-black text-[#ff6b00] uppercase tracking-widest mb-5 block bg-[#ff6b00]/10 w-max px-4 py-1.5 rounded-full">Challenge #3</span>
+                        <h3 class="text-2xl lg:text-3xl font-black text-[#061E42] mb-6 lato leading-tight pr-14">Concerned About Security & Compliance?</h3>
+                        <div class="bg-[#fff8f4] p-5 rounded-xl mb-8 border-l-4 border-[#ff6b00]">
+                            <p class="font-bold text-[#061E42] text-[13px] mb-2 uppercase tracking-widest opacity-80">Outcome You Need:</p>
+                            <p class="text-gray-600 text-[15px] leading-relaxed">A secure, resilient foundation with stronger access control, data protection, backups, and active monitoring.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-[#ff6b00] font-bold text-[15px] inline-flex items-center gap-1.5 hover:gap-3 transition-all relative z-10">Know how we can help <i class="ri-arrow-right-line"></i></a>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-sm border border-gray-100 challenge-card purple flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-[#8B5CF6]/5 group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+                    <div class="absolute right-6 top-6 w-14 h-14 rounded-xl bg-[#8B5CF6]/10 text-[#8B5CF6] flex items-center justify-center text-3xl group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ri-rocket-line"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-[11px] font-black text-[#8B5CF6] uppercase tracking-widest mb-5 block bg-[#8B5CF6]/10 w-max px-4 py-1.5 rounded-full">Challenge #4</span>
+                        <h3 class="text-2xl lg:text-3xl font-black text-[#061E42] mb-6 lato leading-tight pr-14">Infrastructure Slowing Releases?</h3>
+                        <div class="bg-[#fcfaff] p-5 rounded-xl mb-8 border-l-4 border-[#8B5CF6]">
+                            <p class="font-bold text-[#061E42] text-[13px] mb-2 uppercase tracking-widest opacity-80">Outcome You Need:</p>
+                            <p class="text-gray-600 text-[15px] leading-relaxed">Faster, safer delivery with automated deployments, stable infrastructure, and better engineering visibility.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-[#ff6b00] font-bold text-[15px] inline-flex items-center gap-1.5 hover:gap-3 transition-all relative z-10">Know how we can help <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto text-center">
+                    Schedule Your Free Strategy Call <i class="ri-arrow-right-line"></i>
+                </a>
+                <p class="text-xs text-gray-400 mt-4">Free, No-obligation, and NDA-ready.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#205872] text-glow App_Tiltle mb-6 py-2">Web Development Services We Offer</h2>
+                <p class="text-gray-600 text-lg max-w-4xl mx-auto roboto">Empower your business with our comprehensive web development services. We help you modernize legacy platforms, accelerate releases, reduce waste, and create foundations for long-term scale.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 1</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 2</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 3</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 4</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 5</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+                <div class="bg-white border border-gray-200 p-6 flex items-start gap-4 service-box cursor-pointer hover:shadow-lg transition-all rounded-xl hover:-translate-y-1">
+                    <i class="ri-window-line text-3xl text-[#40C49B]"></i>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-[#061E42] text-[15px] pr-4">Custom Web Development Solutions 6</h4>
+                    </div>
+                    <i class="ri-add-line text-gray-300 text-xl hover-plus"></i>
+                </div>
+                
+            </div>
+            
+            <div class="mt-14 text-center">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto text-center">
+                    Share Your Requirements <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-24 bg-[#f8fbfd]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#205872] text-glow App_Tiltle mb-6 py-2">How We Deliver Web Development Services</h2>
+                <p class="text-gray-600 text-lg max-w-4xl mx-auto roboto">We follow a structured process from assessment and planning to deployment and ongoing optimization. Each step helps reduce risk, improve performance, and keep your environment ready for changing business needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+                
+                <!-- Card 1 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">01</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-search-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 01</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Assessment & Goals</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">We review your current infrastructure, workflows, integrations, and business goals to identify risks, costs, and the right strategic approach.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">02</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 02</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Architecture & Roadmap</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">Our experts define the core architecture, platform choices, security controls, and management plan before actual development begins.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">03</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 03</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Design & Governance</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">We design scalable environments with governance built in, including access control, compliance policies, and workload management.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">04</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-code-box-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 04</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Development & Integration</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">Our engineers build custom applications, migrate workloads, modernize legacy systems, and integrate necessary APIs and analytics.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">05</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-test-tube-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 05</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Testing & Validation</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">We set up automated testing, infrastructure as code, and workflows to validate performance, security, and production readiness.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -bottom-8 -right-4 text-[120px] font-black text-gray-50 group-hover:text-[#28BBE9]/10 transition-colors duration-500 pointer-events-none leading-none z-0">06</div>
+                    <div class="absolute top-0 left-0 w-0 h-1.5 bg-gradient-to-r from-[#28BBE9] to-[#40C49B] group-hover:w-full transition-all duration-500 z-10"></div>
+                    <div class="flex items-center justify-between mb-8 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-[#f0f9fc] text-[#28BBE9] flex items-center justify-center text-3xl shadow-sm border border-[#28BBE9]/20 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-rocket-line"></i>
+                        </div>
+                        <span class="bg-[#28BBE9]/10 text-[#28BBE9] font-black text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full">Step 06</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-black text-[#061E42] text-xl mb-4 lato">Deployment & Optimization</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">We deploy with strict release controls, monitoring, logging, and support, while continuously optimizing performance post-launch.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-8 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto text-center">
+                    Get A Custom Roadmap <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#205872] text-glow App_Tiltle mb-6 py-2">Engagement Models We Support</h2>
+                <p class="text-gray-600 text-lg max-w-4xl mx-auto roboto">Choose the right mix of managed services, dedicated teams, and fixed-cost models for your workloads, costs, and compliance needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                <!-- Top Row: 3 items (span 2 each) -->
+                <div class="col-span-1 md:col-span-2 bg-[#f8fbfd] hover:bg-white p-10 rounded-[2rem] border border-gray-100/50 hover:border-gray-200 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+                    <i class="ri-team-line absolute -right-6 -bottom-6 text-[120px] text-gray-900/[0.03] group-hover:text-[#28BBE9]/5 transition-colors duration-500 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#28BBE9] text-2xl mb-8 group-hover:-translate-y-1 transition-transform duration-300 border border-gray-50">
+                            <i class="ri-team-line"></i>
+                        </div>
+                        <h4 class="font-black text-xl text-[#061E42] mb-4">Dedicated Team</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Hire a full-time dedicated team of developers, designers, and managers focused solely on your project.</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-1 md:col-span-2 bg-[#f8fbfd] hover:bg-white p-10 rounded-[2rem] border border-gray-100/50 hover:border-gray-200 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+                    <i class="ri-wallet-3-line absolute -right-6 -bottom-6 text-[120px] text-gray-900/[0.03] group-hover:text-[#40C49B]/5 transition-colors duration-500 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#40C49B] text-2xl mb-8 group-hover:-translate-y-1 transition-transform duration-300 border border-gray-50">
+                            <i class="ri-wallet-3-line"></i>
+                        </div>
+                        <h4 class="font-black text-xl text-[#061E42] mb-4">Fixed Price</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Perfect for projects with clearly defined scope and requirements. Guaranteed delivery within budget.</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-1 md:col-span-2 bg-[#f8fbfd] hover:bg-white p-10 rounded-[2rem] border border-gray-100/50 hover:border-gray-200 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+                    <i class="ri-time-line absolute -right-6 -bottom-6 text-[120px] text-gray-900/[0.03] group-hover:text-[#ff6b00]/5 transition-colors duration-500 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#ff6b00] text-2xl mb-8 group-hover:-translate-y-1 transition-transform duration-300 border border-gray-50">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <h4 class="font-black text-xl text-[#061E42] mb-4">Time & Material</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Flexible billing based on actual hours worked. Ideal for evolving projects with changing requirements.</p>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row: 2 items (span 3 each) -->
+                <div class="col-span-1 md:col-span-3 bg-[#f8fbfd] hover:bg-white p-10 rounded-[2rem] border border-gray-100/50 hover:border-gray-200 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+                    <i class="ri-user-add-line absolute -right-6 -bottom-6 text-[140px] text-gray-900/[0.03] group-hover:text-[#8B5CF6]/5 transition-colors duration-500 pointer-events-none"></i>
+                    <div class="relative z-10 md:w-3/4">
+                        <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#8B5CF6] text-2xl mb-8 group-hover:-translate-y-1 transition-transform duration-300 border border-gray-50">
+                            <i class="ri-user-add-line"></i>
+                        </div>
+                        <h4 class="font-black text-2xl text-[#061E42] mb-4">Staff Augmentation</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">Scale your existing in-house team rapidly with our pre-vetted, highly skilled professionals without the overhead of traditional hiring.</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-1 md:col-span-3 bg-[#f8fbfd] hover:bg-white p-10 rounded-[2rem] border border-gray-100/50 hover:border-gray-200 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+                    <i class="ri-customer-service-2-line absolute -right-6 -bottom-6 text-[140px] text-gray-900/[0.03] group-hover:text-[#28BBE9]/5 transition-colors duration-500 pointer-events-none"></i>
+                    <div class="relative z-10 md:w-3/4">
+                        <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#28BBE9] text-2xl mb-8 group-hover:-translate-y-1 transition-transform duration-300 border border-gray-50">
+                            <i class="ri-customer-service-2-line"></i>
+                        </div>
+                        <h4 class="font-black text-2xl text-[#061E42] mb-4">Managed Services</h4>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">Get complete peace of mind with end-to-end technical support, maintenance, and continuous optimization of your critical platforms.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-2 btn-cyan-glow text-white font-bold py-3.5 px-10 rounded-lg transition-all text-[15px] hover:-translate-y-0.5 w-full sm:w-auto text-center">
+                    Start Your Project <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+<footer class="relative  bg-cover bg-center min-h-[120vh] text-white"
+            style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('assets/images/footerbg.jpg');">
+
+            <div class="absolute inset-0 bg-black/70"></div>
+
+            <div class="relative z-10 w-full mx-auto flex flex-col items-center justify-center h-full space-y-12">
+
+                <div class="w-[90%] flex justify-center">
+                    <div class="text-center mt-10">
+                        <h2 class="text-5xl font-bold mb-8 tracking-wider pt-10 hoverable-text">INSTANT CONTACT</h2>
+                        <form class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+                            <input type="text" placeholder="Name"
+                                class="w-[330px] bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Phone No."
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="email" placeholder="Email"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+
+                            <input type="text" placeholder="Service You Choose"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                            <input type="text" placeholder="Your Address"
+                                class="bg-transparent border-b border-[#72F5CD] outline-none text-[#C8C8C8] placeholder-gray-300 py-2 hoverable-input" />
+                        </form>
+
+                        <button
+                            class="mt-8 text-white w-[230px] bg-gradient-to-r from-[#3ABDFD] to-[#38E8AF] text-[30px] font-semibold px-10 py-2 rounded-full hover:opacity-90 transition-all hoverable-button">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+
+                <img src="assets/images/footereclip.png" class="absolute z-[-11] scale-x-[-1] left-0" />
+                <div
+                    class=" animated-bg mouse-glow bg-[radial-gradient(circle_at_center,_#00332F,_#000000,_#006345)] h-[120vh] rounded-tl-[700px] py-12 px-10 md:px-20 w-full border-t-[2px] border-l-[2px] border-[#6FACAB]">
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+                        <div class="mt-[270px]">
+                            <div class="flex items-center px-3 ml-[-20px] mb-5 bg-white w-[240px] py-2 rounded-[10px]">
+                                <img src="assets/images/logo.png" />
+                            </div>
+                            <p class="text-gray-300 leading-relaxed lato mt-10 text-[16px] ml-[-10px] hoverable-text">
+                                Kyle Infotech is a forward-thinking IT company dedicated to delivering smart, scalable,
+                                and
+                                reliable technology solutions for businesses of all sizes.
+                            </p>
+                        </div>
+
+                        <div class="mt-[150px] ml-10">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Quick Links</h3>
+                            <ul class="space-y-2 text-gray-300 text-[20px] lato">
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="index.html" class="hover:text-white transition">Home</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="about.html" class="hover:text-white transition">About us</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="services.html" class="hover:text-white transition">Our Services</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Projects</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="contact.html" class="hover:text-white transition">Contact</a>
+                                </li>
+                                <li class="flex items-center gap-2 hoverable-link">
+                                    <span class="text-[#72F5CD]">✓</span>
+                                    <a href="#" class="hover:text-white transition">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-[70px]">
+                            <h3 class="font-semibold mb-4 text-[28px] lato hoverable-text">Contact Info</h3>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-map-pin-line text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">32 Loren Rd, Lorem BR2 88A, United Kingdom</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-mail-line text-[#72F5CD] text-[20px] "></i>
+                                <p class="text-gray-300 text-[20px]">loren@testmail.com</p>
+                            </div>
+                            <div class="flex items-center gap-2 mt-3 hoverable-text">
+                                <i class="ri-phone-line  text-[20px] text-[#72F5CD]"></i>
+                                <p class="text-gray-300 text-[20px]">+918240445884</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold mb-4 text-[28px] mt-5 lato hoverable-text">Working Hours</h3>
+                            <p class="text-gray-300 text-[18px] hoverable-text">Monday to Friday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                            <p class="text-gray-300 text-[18px] mt-2 hoverable-text">Saturday to Sunday: <span
+                                    class="font-bold">8am to 8pm</span></p>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex justify-end h-[33vh] mt-1">
+                        <div
+                            class="w-[70%] flex justify-end items-center border-t-[1px] border-[#8E8E8E] mr-[-80px] rounded-tl-[1000px]">
+                            <div class="flex gap-2 items-center mt-[-210px] mr-[130px]">
+                                <div
+                                    class="flex justify-center bg-gradient-to-r from-[#25ABD4] to-[#40C49B] text-white items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-facebook-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-instagram-line text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-linkedin-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-youtube-fill text-[20px]"></i>
+                                </div>
+                                <div
+                                    class="flex justify-center text-white bg-gradient-to-r from-[#25ABD4] to-[#40C49B] items-center rounded-full h-12 w-12 border-[1px] border-white hoverable-button">
+                                    <i class="ri-twitter-x-line text-[20px]"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+<script>
+    function createClock(id, offset) {
+        const clock = document.getElementById(id);
+        if(!clock) return;
+        const center = 30;
+        const radius = 22;
+
+        for (let i = 1; i <= 12; i++) {
+            const num = document.createElement("div");
+            num.textContent = i;
+            num.className = "absolute text-[10px] text-gray-300 font-semibold";
+            const angle = (i / 12) * 2 * Math.PI;
+            const x = center + radius * Math.sin(angle);
+            const y = center - radius * Math.cos(angle);
+            num.style.left = `${x}px`;
+            num.style.top = `${y}px`;
+            num.style.transform = "translate(-50%, -50%)";
+            clock.appendChild(num);
+        }
+
+        const hourHand = document.createElement("div");
+        hourHand.className = "absolute bg-gray-400 rounded-full origin-bottom";
+        hourHand.style.width = "2px";
+        hourHand.style.height = "12px";
+        hourHand.style.left = "29px";
+        hourHand.style.top = "18px";
+        clock.appendChild(hourHand);
+
+        const minuteHand = document.createElement("div");
+        minuteHand.className = "absolute bg-white rounded-full origin-bottom";
+        minuteHand.style.width = "2px";
+        minuteHand.style.height = "18px";
+        minuteHand.style.left = "29px";
+        minuteHand.style.top = "12px";
+        clock.appendChild(minuteHand);
+
+        const secondHand = document.createElement("div");
+        secondHand.className = "absolute bg-red-400 rounded-full origin-bottom";
+        secondHand.style.width = "1px";
+        secondHand.style.height = "20px";
+        secondHand.style.left = "29.5px";
+        secondHand.style.top = "10px";
+        clock.appendChild(secondHand);
+
+        const centerDot = document.createElement("div");
+        centerDot.className = "absolute bg-white rounded-full";
+        centerDot.style.width = "6px";
+        centerDot.style.height = "6px";
+        centerDot.style.left = "27px";
+        centerDot.style.top = "27px";
+        clock.appendChild(centerDot);
+
+        function updateClock() {
+            const now = new Date();
+            const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const targetTime = new Date(utc + 3600000 * offset);
+
+            const hours = targetTime.getHours();
+            const minutes = targetTime.getMinutes();
+            const seconds = targetTime.getSeconds();
+
+            const hourAngle = (hours % 12) * 30 + minutes * 0.5;
+            const minuteAngle = minutes * 6 + seconds * 0.1;
+            const secondAngle = seconds * 6;
+
+            hourHand.style.transform = `rotate(${hourAngle}deg)`;
+            minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
+            secondHand.style.transform = `rotate(${secondAngle}deg)`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        createClock("clock-ny", -4);
+        createClock("clock-aus", 10);
+        createClock("clock-uk", 1);
+    });
+</script>
+</body>
+</html>
