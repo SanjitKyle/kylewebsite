@@ -343,14 +343,327 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
+
+    
+
+    
+
+    
+
+    
+
+    <!-- MOBILE RESPONSIVE FIXES (Only applies to small screens) -->
+    <style>
+        /* Fix horizontal scroll globally */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+        }
+        
+        @media (max-width: 1024px) {
+            /* General */
+            .w-\[90\%\], .w-\[95\%\], .w-\[88\%\], .w-\[80\%\] {
+                width: 95% !important;
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+            .w-\[50\%\], .w-\[60\%\] { width: 100% !important; }
+            
+            /* Overrides for negative margins */
+            .ml-\[-80px\], .ml-\[-60px\], .ml-\[105px\], .ml-\[250px\], .ml-\[-220px\], .ml-\[-100px\], .ml-\[-20px\], .ml-\[-10px\] {
+                margin-left: 0 !important;
+            }
+            .mr-\[-81px\], .mr-\[-438px\], .mr-\[-320px\], .mr-\[100px\] {
+                margin-right: 0 !important;
+            }
+            .mt-\[-430px\] { margin-top: 2rem !important; position: relative !important; z-index: 1 !important; }
+
+            /* Top Bar */
+            .w-\[90\%\].flex.justify-between.gap-10.h-\[40px\] {
+                flex-direction: column !important;
+                height: auto !important;
+                gap: 0.75rem !important;
+                padding: 1rem 0 !important;
+            }
+            .w-\[90\%\].flex.justify-between.gap-10.h-\[40px\] .flex.gap-2.text-white.items-center { /* Location */
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                font-size: 0.8rem !important;
+                justify-content: center !important;
+            }
+            .w-\[90\%\].flex.justify-between.gap-10.h-\[40px\] .flex.gap-2.text-white.items-center i { margin-top: 3px; margin-right: 5px; }
+            .flex.gap-4.items-center, .w-\[90\%\].flex.justify-between.gap-10.h-\[40px\] > .flex.gap-2.items-center:last-child {
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+            }
+            
+            /* Hero Section Fix */
+            .mt-\[100px\] { margin-top: 2rem !important; }
+            .mt-\[100px\] > .w-\[90\%\].flex.justify-between.items-center {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+                text-align: center !important;
+                align-items: center !important;
+            }
+            
+            .absolute.right-0 {
+                position: relative !important;
+                right: auto !important;
+                margin-top: 1rem !important;
+                display: flex;
+                justify-content: center;
+                width: 100% !important;
+            }
+            .absolute.right-0 img {
+                width: 100% !important;
+                max-width: 320px !important;
+            }
+            
+            /* Tighter line heights and font sizes for Hero text */
+            .text-5xl { font-size: 2rem !important; line-height: 1.1 !important; margin-bottom: 0.5rem; }
+            .text-8xl { font-size: 3.2rem !important; line-height: 1.1 !important; display: block; margin: 0.2rem 0; }
+            .text-\[40px\] { font-size: 1.2rem !important; }
+            
+            /* Hide the tiny black dot artifact in the typing cursor if it's acting weird */
+            .typing-cursor::after { content: none !important; }
+            
+            .rounded-br-\[550px\] { border-bottom-right-radius: 50px !important; }
+            .min-h-\[115vh\] { min-height: auto !important; padding-bottom: 2rem !important; height: auto !important; }
+
+            /* Hero Call To Action Block */
+            .w-\[80\%\].mt-12 {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 1.25rem !important;
+                margin-top: 1.5rem !important;
+            }
+            .flex.gap-8.ml-\[105px\] { 
+                justify-content: center !important; 
+                flex-direction: row !important; 
+                gap: 0.75rem !important; 
+                align-items: center !important; 
+            }
+            .text-\[22px\] { font-size: 1.1rem !important; font-weight: 600; }
+            .h-6.mt-1.rounded-\[20px\] {
+                height: auto !important;
+                padding: 0.3rem 0.8rem !important;
+                margin: 0 !important;
+                font-size: 0.8rem !important;
+                font-weight: 600;
+            }
+            
+            /* The big phone box */
+            .flex.text-\[40px\].border-\[2px\] {
+                width: 100% !important;
+                max-width: 280px !important;
+                flex-direction: row !important; 
+                padding: 0.75rem 1rem !important;
+                justify-content: center !important;
+                gap: 0.75rem !important;
+                border-radius: 50px !important;
+                font-size: 1.1rem !important;
+            }
+            .w-\[70px\].mt-\[-50px\].h-\[70px\] {
+                width: 40px !important;
+                height: 40px !important;
+                margin-top: 0 !important; 
+                position: relative !important;
+            }
+            .w-\[70px\].mt-\[-50px\].h-\[70px\] i { font-size: 20px !important; }
+
+            .w-\[80\%\].mt-1.scroll-animate-up {
+                width: 100% !important;
+                margin-top: 1.5rem !important;
+            }
+            .w-\[80\%\].mt-1.scroll-animate-up img { margin: 0 auto; max-width: 200px !important;}
+
+            /* Social Edge Section */
+            #social-edge-section {
+                margin-top: 2rem !important;
+            }
+            #social-edge-inner {
+                flex-direction: column-reverse !important;
+                align-items: center !important;
+                gap: 1rem !important;
+                width: 95% !important;
+            }
+            #social-edge-gif {
+                width: 100% !important;
+                justify-content: center !important;
+                display: flex !important;
+            }
+            #social-edge-gif img {
+                width: 90% !important;
+                max-width: 380px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+            }
+            #social-edge-text {
+                width: 100% !important;
+                margin-left: 0 !important;
+                padding: 0 1.2rem !important;
+                text-align: center !important;
+            }
+            #social-edge-text h2 {
+                font-size: 1.4rem !important;
+                line-height: 1.3 !important;
+            }
+            #social-edge-text p {
+                font-size: 0.85rem !important;
+                margin-top: 0.75rem !important;
+                line-height: 1.6 !important;
+                text-align: center !important;
+            }
+            #social-edge-text img { max-width: 200px !important; margin: 0 auto !important; }
+            
+            #social-edge-checklist {
+                height: auto !important;
+                position: relative !important;
+                margin-top: 0 !important;
+                padding: 1.5rem 1rem 2rem !important;
+            }
+            #social-edge-list {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1rem !important;
+                align-items: start !important;
+                margin-right: 0 !important;
+                padding: 0 0.5rem !important;
+            }
+            #social-edge-list ul { width: 100% !important; }
+            #social-edge-list li { padding: 0.3rem 0 !important; }
+            #social-edge-list li span { font-size: 0.85rem !important; }
+            
+            #social-edge-cta {
+                margin-right: 0 !important;
+                width: 100% !important;
+                justify-content: center !important;
+                margin-top: 1rem !important;
+                padding: 0.5rem !important;
+            }
+            #social-edge-cta a { font-size: 1.3rem !important; }
+            
+            /* Vertical Sliders (Technology) */
+            #verticalSlider { height: auto !important; overflow: visible !important; }
+            #verticalSlider #sliderWrapper { width: 100% !important; }
+            .main-section::after {
+                width: 100% !important;
+                height: 100% !important;
+                border-radius: 0 !important;
+            }
+            .main-section::before {
+                width: 100% !important;
+                height: 100% !important;
+                border-radius: 0 !important;
+            }
+            #verticalSlider .h-screen { 
+                height: auto !important; 
+                min-height: auto !important; 
+                padding: 2rem 0 !important; 
+            }
+            #verticalSlider .gap-\[300px\] { 
+                gap: 1.5rem !important; 
+                flex-direction: column-reverse !important; 
+                text-align: center !important; 
+                align-items: center !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+                padding: 0 1rem !important;
+            }
+            #verticalSlider .gap-\[300px\] > div:first-child {
+                width: 100% !important;
+                padding: 0 1rem !important;
+            }
+            #verticalSlider .gap-\[300px\] > div:first-child h3 {
+                font-size: 1.5rem !important;
+                line-height: 1.3 !important;
+            }
+            #verticalSlider .gap-\[300px\] > div:first-child p {
+                margin-top: 1rem !important;
+                font-size: 0.9rem !important;
+            }
+            #verticalSlider .flex.gap-4.mt-10 { 
+                justify-content: center !important; 
+                flex-wrap: wrap !important; 
+                margin-top: 1rem !important;
+            }
+            #verticalSlider .relative.mr-\[-81px\] { 
+                height: auto !important; 
+                width: 100% !important;
+                margin-right: 0 !important;
+            }
+            #verticalSlider .relative.mr-\[-81px\] img { 
+                margin: 0 auto !important; 
+                position: static !important; 
+                width: 90% !important;
+                max-width: 350px !important;
+            }
+
+            /* Grid Layouts (Services, Testimonials) */
+            .grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+            
+            /* Footer */
+            footer .flex-col { gap: 2rem !important; text-align: center !important; }
+            footer input { width: 100% !important; }
+            .rounded-tl-\[700px\] { border-top-left-radius: 40px !important; }
+            .mt-\[270px\], .mt-\[150px\], .mt-\[70px\] { margin-top: 2rem !important; }
+            .grid-cols-1.md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            
+            /* Cards / Sliders */
+            #intro { overflow: hidden !important; padding: 0 1rem !important; }
+            #intro > .w-\[90\%\] { 
+                width: 100% !important; 
+                display: flex !important; 
+                justify-content: center !important; 
+            }
+            #intro .relative.ml-\[250px\] { 
+                margin-left: 0 !important; 
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            #intro .slide { margin-left: 0 !important; }
+            .expanded-card { width: 85vw !important; }
+            .expanded-view h3, 
+            .expanded-view p, 
+            .expanded-view a { 
+                margin-left: 1.5rem !important; 
+            }
+            .expanded-view img[src*="cardline.png"] {
+                margin-left: 1.5rem !important;
+            }
+            .expanded-view p {
+                margin-right: 1rem !important;
+            }
+            .expanded-view a { margin-bottom: 20px !important; }
+            .h-\[400px\] { height: auto !important; min-height: 280px !important; }
+            
+            #social-edge-cta {
+                animation: none !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div
-        class="w-full min-h-[115vh] bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[550px] relative">
-        <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[550px] min-h-[115vh]"></div>
 
-        <div class="relative w-full flex justify-center scroll-animate scroll-animate-up" data-delay="0">
+
+
+
+
+<body>
+    <div id="mobile-overflow-wrapper" style="overflow-x: hidden; width: 100%; position: relative; max-width: 100vw;">
+    <div
+        class="w-full min-h-[115vh] bg-cover bg-center bg-[url('assets/images/bannerimage.png')] rounded-br-[590px] sm:rounded-br-[550px] relative">
+        <div class="absolute inset-0 bg-[#000A19CF] rounded-br-[590px] sm:rounded-br-[550px] min-h-[115vh]"></div>
+
+        <div class="relative w-full hidden lg:flex justify-center scroll-animate scroll-animate-up" data-delay="0">
             <div class="w-[90%] flex justify-between gap-10 h-[40px] mt-2">
                 <div class="flex gap-2 text-white items-center">
                     <i class="ri-map-pin-2-fill text-white"></i>
@@ -392,15 +705,22 @@
             </div>
         </div>
 
-        <div class="w-full flex relative justify-center mt-3 items-center scroll-animate scroll-animate-up"
+        <div class="w-full flex relative justify-center pt-4 items-center scroll-animate scroll-animate-up"
             data-delay="100">
-            <div class="w-[90%] bg-white rounded-[10px] py-3 flex justify-between items-center px-4">
-                <img src="assets/images/logo.png" class="w-[25%]" alt="Kyle Infotech Logo" />
-                <ul class="flex gap-6 roboto text-[#061E42] font-bold">
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="index.html">Home</a></li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="about.html">About Us</a></li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="services.html">Services</a></li>
-                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer"><a href="contact.html">Contact</a></li>
+            <div class="w-[90%] bg-white rounded-[10px] py-3 flex flex-col lg:flex-row lg:justify-between lg:items-center px-4 shadow-lg z-50 relative">
+                <div class="flex justify-between items-center w-full lg:w-auto">
+                    <img src="assets/images/logo.png" class="w-[180px] lg:w-[25%]" alt="Kyle Infotech Logo" />
+                    <!-- Hamburger Icon -->
+                    <div class="lg:hidden cursor-pointer" onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); document.getElementById('mobile-menu').classList.toggle('flex');">
+                        <i class="ri-menu-3-line text-[32px] text-[#061E42]"></i>
+                    </div>
+                </div>
+                <!-- Nav Links -->
+                <ul id="mobile-menu" class="hidden lg:flex flex-col lg:flex-row gap-4 lg:gap-6 mt-4 lg:mt-0 pb-2 lg:pb-0 roboto text-[#061E42] font-bold w-full lg:w-auto text-center lg:text-left transition-all duration-300">
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer py-1"><a href="index.html">Home</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer py-1"><a href="about.html">About Us</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer py-1"><a href="services.html">Services</a></li>
+                    <li class="hover:text-[#28BBE9] transition-colors cursor-pointer py-1"><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -468,13 +788,13 @@
         </div>
     </div>
 
-    <div class="w-full flex justify-center mt-[100px]">
-        <div class="w-[95%] flex">
-            <div class="w-[50%] flex justify-start scroll-animate scroll-animate-left" data-delay="0">
+    <div id="social-edge-section" class="w-full flex justify-center mt-[100px]">
+        <div id="social-edge-inner" class="w-[95%] flex">
+            <div id="social-edge-gif" class="w-[50%] flex justify-start scroll-animate scroll-animate-left" data-delay="0">
                 <img src="assets/images/gif.gif" class="ml-[-60px]" />
             </div>
 
-            <div class="w-[50%] ml-[-80px]">
+            <div id="social-edge-text" class="w-[50%] ml-[-80px]">
                 <span class="text-[#00A3F7] App_Tiltle text-[18px] font-semibold scroll-animate scroll-animate-right"
                     data-delay="0">The Social Edge</span>
                 <h2 class="text-[#205872] text-glow text-[40px] font-extrabold lato scroll-animate scroll-animate-left"
@@ -489,9 +809,9 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-[#F5FDFF] h-[70vh] absolute mt-[-430px] z-[-10] flex justify-center">
+    <div id="social-edge-checklist" class="w-full bg-[#F5FDFF] h-[70vh] absolute mt-[-430px] z-[-10] flex justify-center">
         <div>
-            <div class="flex gap-20 justify-center mr-[-438px] mt-5">
+            <div id="social-edge-list" class="flex gap-20 justify-center mr-[-438px] mt-5">
                 <ul class="space-y-2 text-[19px] text-[#1d4ed8] font-medium lato scroll-animate scroll-animate-left">
                     <li class="flex items-center gap-2 " data-delay="0">
                         <i class="ri-check-line text-[#1d9bf0] font-bold text-3xl"></i>
@@ -530,7 +850,7 @@
                 </ul>
             </div>
 
-            <div class="flex items-center mr-[-320px] gap-3 bg-[#f3fbff] p-3 rounded-md scroll-animate scroll-animate-scale"
+            <div id="social-edge-cta" class="flex items-center mr-[-320px] gap-3 bg-[#f3fbff] p-3 rounded-md scroll-animate scroll-animate-scale"
                 data-delay="400">
                 <div
                     class="w-[75px] h-[75px] mt-5 rounded-full bg-[#27B3DE] flex items-center justify-center text-white">
@@ -2193,6 +2513,7 @@
 
 
 
+    </div>
 </body>
 
 </html>
